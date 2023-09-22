@@ -10,7 +10,6 @@ from dotenv import load_dotenv
 from utils.get_ticker_10k_filings import get_ticker_10k_filings
 from utils.collect_ticker_files import collect_ticker_files
 from utils.new_10k_reports_to_supabase import new_10k_reports_to_supabase
-from utils.find_general_section import find_general_section
 from utils.delete_txt_files import delete_txt_files
 from utils.parse_html_file import parse_html_file
 
@@ -61,8 +60,10 @@ def process_ticker_10k_data(ticker):
                     "cik": CIK,
                     "year": int(Year),
                     "accession_number": AccessionNumber,
-                    "parsed_data": json.dumps(parsed_data),
+                    "risk_factor": parsed_data["risk_factor"],
+                    "all_text": parsed_data["all_text"],
                 }
+
             except ValueError:
                 print(f"Skipping file with invalid year format in {html_file}")
                 continue

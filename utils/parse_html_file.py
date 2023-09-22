@@ -7,9 +7,9 @@ def parse_html_file(file_path):
         soup = BeautifulSoup(file.read(), "lxml")
     all_text = " ".join([tag.strip() for tag in soup.stripped_strings])
     risk_factors_section = find_general_section("Risk Factors", all_text)
-    parsed_data = {
-        "Risk Factors": risk_factors_section
+    return {
+        "all_text": all_text,
+        "risk_factor": risk_factors_section
         if risk_factors_section
-        else "Section not found"
+        else "Section not found",
     }
-    return parsed_data
