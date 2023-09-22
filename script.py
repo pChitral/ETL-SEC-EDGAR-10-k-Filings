@@ -43,7 +43,7 @@ def new_10k_reports_to_supabase(all_parsed_data_list, Client):
         return data_reports.data
 
     except Exception as e:
-        return f"An error occurred during embedding: {e}"
+        return f'An error occurred during embedding: {e}'
 
 
 def find_general_section(title, text_content):
@@ -135,4 +135,3 @@ tickers = ["AAPL", "GOOG"]  # Add your list of tickers here
 
 for ticker in tickers:
     all_tickers_data[ticker] = process_ticker_10k_data(ticker)
-
