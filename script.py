@@ -60,7 +60,7 @@ def process_ticker_10k_data(ticker):
                     "cik": CIK,
                     "year": int(Year),
                     "accession_number": AccessionNumber,
-                    "risk_factor": parsed_data["risk_factor"],
+                    "risk_factor": parsed_data["Risk Factors"],
                     "all_text": parsed_data["all_text"],
                 }
 
