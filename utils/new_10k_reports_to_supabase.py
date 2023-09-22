@@ -19,11 +19,15 @@ def new_10k_reports_to_supabase(all_parsed_data_list, Client):
             ~parsed_data_df["accession_number"].isin(existing_accession_numbers)
         ]
         formatted_filtered_reports = filtered_reports_df.to_dict(orient="records")
+        print(formatted_filtered_reports)
 
         # Inserting the data into the reports_10k table
         data_reports = (
             Client.table("reports_10k").insert(formatted_filtered_reports).execute()
         )
+
+        if data_reports.error:
+            print(f"Supabase Error: {data_reports.error}")
 
         assert len(data_reports.data) > 0, "No reports were embedded successfully."
         return data_reports.data
