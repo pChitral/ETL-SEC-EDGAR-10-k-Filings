@@ -23,7 +23,12 @@ Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 def process_ticker_10k_data(ticker):
     # Download 10-K filings
-    get_ticker_10k_filings(ticker)
+    try:
+        get_ticker_10k_filings(ticker)
+    except Exception as e:
+        print(f"Error occurred while downloading filings for {ticker}: {e}")
+        return {}
+
     ticker_files_dict = collect_ticker_files()
 
     # Delete .txt files to save space
@@ -71,7 +76,8 @@ def process_ticker_10k_data(ticker):
     new_10k_reports_to_supabase(all_parsed_data_list, Client)
 
     # Clear the data folder after processing
-    rmtree("data")
+    if os.path.exists("data"):
+        rmtree("data")
 
     return all_parsed_data
 
