@@ -8,8 +8,9 @@ def parse_html_file(file_path):
     all_text = " ".join([tag.strip() for tag in soup.stripped_strings])
     risk_factors_section = find_general_section("Risk Factors", all_text)
     parsed_data = {
-        "risk_factor": risk_factors_section
+        "Risk Factors": risk_factors_section
         if risk_factors_section
-        else "Section not found"
+        else "Section not found",
+        "all_text": all_text,
     }
     return parsed_data

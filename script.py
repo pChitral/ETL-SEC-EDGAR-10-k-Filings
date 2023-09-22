@@ -61,7 +61,7 @@ def process_ticker_10k_data(ticker):
                     "year": int(Year),
                     "accession_number": AccessionNumber,
                     "risk_factor": parsed_data.get("Risk Factors", "Section not found"),
-                    "all_text": parsed_data["all_text"],
+                    "all_text": parsed_data.get("all_text", ""),
                 }
 
             except ValueError:
