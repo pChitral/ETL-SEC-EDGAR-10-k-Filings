@@ -3,14 +3,12 @@ import pandas as pd
 from bs4 import BeautifulSoup
 from supabase import create_client
 from dotenv import load_dotenv
-
+from collections import Counter
+import json
 from utils.get_ticker_10k_filings import get_ticker_10k_filings
 from utils.collect_ticker_files import collect_ticker_files
 from utils.delete_txt_files import delete_txt_files
-
 from shutil import rmtree
-from collections import Counter
-import json
 
 # Supabase API keys
 load_dotenv()
@@ -36,6 +34,16 @@ def extract_mdna_section(content):
     return " ".join(mda_content).replace("\n", " ").replace("\t", " ").strip()
 
 
+def find_general_section(section_title, text):
+    start = text.find(section_title)
+    if start == -1:
+        return None
+    end = text.find("ITEM", start + 1)
+    if end == -1:
+        end = None
+    return text[start:end].strip()
+
+
 # Read the words from the provided file
 with open("words_fraud_constraints.json", "r") as file:
     target_words = json.load(file)
@@ -53,14 +61,16 @@ def get_word_frequencies(text):
 def parse_html_file(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         content = file.read()
-    mda_section = extract_mdna_section(content)
-    return {"MD&A": mda_section, "word_frequency": get_word_frequencies(mda_section)}
+    mda_section = find_general_section("ITEM 7.", content)
+    return {
+        "MD&A": mda_section if mda_section else "MD&A section not found",
+        "target_word_frequency": get_word_frequencies(mda_section),
+    }
 
 
 def new_10k_reports_to_supabase(parsed_data_list, client):
     for data in parsed_data_list:
         response = client.table("reports_10k").insert(data).execute()
-        # We won't check the status code here.
 
 
 def process_ticker_10k_data(ticker):
