@@ -17,21 +17,36 @@ SUPABASE_KEY = os.environ["SUPABASE_KEY"]
 Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
-def extract_mdna_section(content):
+def extract_mdna_section(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.read()
     soup = BeautifulSoup(content, "html.parser")
+
     mda_start = soup.find(string=lambda text: "ITEM 7." in text)
     if not mda_start:
         return "MD&A section not found."
 
     mda_content = []
     for sibling in mda_start.find_all_next(string=True):
-        if "ITEM 8." in sibling:
+        if sibling and "ITEM 8." in sibling:
             break
-        clean_str = sibling.strip()
-        if clean_str:
-            mda_content.append(clean_str)
+        if sibling:  # Check if sibling is not None
+            mda_content.append(sibling.strip())
 
-    return " ".join(mda_content).replace("\n", " ").replace("\t", " ").strip()
+    refined_mda_content = []
+    for item in mda_content:
+        if "PAGE" in item or "Table of Contents" in item or "Part II" in item:
+            continue
+        refined_mda_content.append(item)
+
+    mdna_text = " ".join(refined_mda_content)
+    mdna_text = " ".join(mdna_text.split())
+
+    unwanted_patterns = ["&nbsp;", "&#146;", "&#147;", "&#148;"]
+    for pattern in unwanted_patterns:
+        mdna_text = mdna_text.replace(pattern, "")
+
+    return mdna_text
 
 
 def find_general_section(section_title, text):
