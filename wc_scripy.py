@@ -22,7 +22,8 @@ def extract_mdna_section(file_path):
         content = file.read()
     soup = BeautifulSoup(content, "html.parser")
 
-    item_7_variants = ["ITEM 7.", "ITEM 7 –", "ITEM 7—"]
+    # Variations of "ITEM 7." to account for different formatting in documents
+    item_7_variants = ["ITEM 7.", "ITEM 7 –", "ITEM 7—", "ITEM&nbsp;7."]
     mda_start = None
     for variant in item_7_variants:
         mda_start = soup.find(string=lambda text: variant in text)
@@ -34,7 +35,7 @@ def extract_mdna_section(file_path):
 
     mda_content = []
     for sibling in mda_start.find_all_next(string=True):
-        if sibling and "ITEM 8." in sibling:
+        if sibling and any(item in sibling for item in ["ITEM 8.", "ITEM&nbsp;8."]):
             break
         if sibling:  # Check if sibling is not None
             mda_content.append(sibling.strip())
