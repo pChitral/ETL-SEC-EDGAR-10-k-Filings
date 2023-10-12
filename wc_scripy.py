@@ -9,6 +9,7 @@ from utils.get_ticker_10k_filings import get_ticker_10k_filings
 from utils.collect_ticker_files import collect_ticker_files
 from utils.delete_txt_files import delete_txt_files
 from shutil import rmtree
+import re
 
 # Supabase API keys
 load_dotenv()
@@ -17,43 +18,36 @@ SUPABASE_KEY = os.environ["SUPABASE_KEY"]
 Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
-def extract_mdna_section(file_path):
+def extract_mda_section(file_path: str) -> str:
+    """
+    Extract the "Management’s Discussion and Analysis of Financial Condition and Results of Operations"
+    section from a 10-K report HTML file.
+
+    Args:
+    - file_path (str): Path to the HTML file of the 10-K report.
+
+    Returns:
+    - str: Text of the MDA section.
+    """
+    # Load the content of the HTML file
     with open(file_path, "r", encoding="utf-8") as file:
-        content = file.read()
-    soup = BeautifulSoup(content, "html.parser")
+        html_content = file.read()
 
-    # Variations of "ITEM 7." to account for different formatting in documents
-    item_7_variants = ["ITEM 7.", "ITEM 7 –", "ITEM 7—", "ITEM&nbsp;7."]
-    mda_start = None
-    for variant in item_7_variants:
-        mda_start = soup.find(string=lambda text: variant in text)
-        if mda_start:
-            break
+    # Convert the entire content to lowercase
+    lower_content = html_content.lower()
 
-    if not mda_start:
-        return "MD&A section not found."
+    # Using a regex pattern to extract the content between the second occurrences of "item 7." and "item 8."
+    pattern = r"(?:item\s*7\.)(?:.*?item\s*7\.)(.*?)(?:item\s*8\.)"
+    match = re.search(pattern, lower_content, re.DOTALL)
 
-    mda_content = []
-    for sibling in mda_start.find_all_next(string=True):
-        if sibling and any(item in sibling for item in ["ITEM 8.", "ITEM&nbsp;8."]):
-            break
-        if sibling:  # Check if sibling is not None
-            mda_content.append(sibling.strip())
+    # Extract matched content if found
+    section_content = match.group(1).strip() if match else "Section not found."
 
-    refined_mda_content = []
-    for item in mda_content:
-        if "PAGE" in item or "Table of Contents" in item or "Part II" in item:
-            continue
-        refined_mda_content.append(item)
+    # Parse the HTML content to retrieve the text
+    soup = BeautifulSoup(section_content, "html.parser")
+    parsed_text = soup.get_text()
 
-    mdna_text = " ".join(refined_mda_content)
-    mdna_text = " ".join(mdna_text.split())
-
-    unwanted_patterns = ["&nbsp;", "&#146;", "&#147;", "&#148;"]
-    for pattern in unwanted_patterns:
-        mdna_text = mdna_text.replace(pattern, "")
-
-    return mdna_text
+    return parsed_text
 
 
 def find_general_section(section_title, text):
@@ -83,7 +77,7 @@ def get_word_frequencies(text):
 def parse_html_file(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         content = file.read()
-    mda_section = extract_mdna_section(file_path)  # Use the updated function
+    mda_section = extract_mda_section(file_path)  # Use the updated function
     return {
         "MD&A": mda_section if mda_section else "MD&A section not found",
         "target_word_frequency": get_word_frequencies(mda_section),
