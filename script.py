@@ -76,9 +76,9 @@ def process_ticker_10k_data(ticker):
     # Insert parsed data into Supabase
     new_10k_reports_to_supabase(all_parsed_data_list, Client)
 
-    # Clear the data folder after processing
-    if os.path.exists("data"):
-        rmtree("data")
+    # # Clear the data folder after processing
+    # if os.path.exists("data"):
+    #     rmtree("data")
 
     return all_parsed_data
 
@@ -89,6 +89,9 @@ df = pd.read_json("company_tickers.json", orient="index")
 # Process each ticker
 all_tickers_data = {}
 tickers = df["ticker"].tolist()
-
+count = 0   
 for ticker in tickers:
     all_tickers_data[ticker] = process_ticker_10k_data(ticker)
+    count += 1
+    if count > 3:
+        break
