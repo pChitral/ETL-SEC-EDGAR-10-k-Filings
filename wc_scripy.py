@@ -82,7 +82,7 @@ def get_word_frequencies(text):
 def parse_html_file(file_path):
     with open(file_path, "r", encoding="utf-8") as file:
         content = file.read()
-    mda_section = find_general_section("ITEM 7.", content)
+    mda_section = extract_mdna_section(file_path)  # Use the updated function
     return {
         "MD&A": mda_section if mda_section else "MD&A section not found",
         "target_word_frequency": get_word_frequencies(mda_section),
