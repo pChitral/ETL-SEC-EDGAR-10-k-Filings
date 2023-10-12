@@ -116,7 +116,7 @@ def process_ticker_10k_data(ticker):
                     "year": int(Year),
                     "accession_number": AccessionNumber,
                     "mda_section": parsed_data.get("MD&A", "Section not found"),
-                    "word_frequency": parsed_data.get("word_frequency", "{}"),
+                    "target_word_frequency": parsed_data.get("word_frequency", "{}"),
                 }
             except ValueError:
                 print(f"Skipping file with invalid year format in {html_file}")
