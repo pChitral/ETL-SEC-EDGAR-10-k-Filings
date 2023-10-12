@@ -22,7 +22,13 @@ def extract_mdna_section(file_path):
         content = file.read()
     soup = BeautifulSoup(content, "html.parser")
 
-    mda_start = soup.find(string=lambda text: "ITEM 7." in text)
+    item_7_variants = ["ITEM 7.", "ITEM 7 –", "ITEM 7—"]
+    mda_start = None
+    for variant in item_7_variants:
+        mda_start = soup.find(string=lambda text: variant in text)
+        if mda_start:
+            break
+
     if not mda_start:
         return "MD&A section not found."
 
