@@ -160,5 +160,5 @@ count = 0
 for ticker in tickers:
     all_tickers_data[ticker] = process_ticker_10k_data(ticker)
     count += 1
-    if count > 3:
+    if count > 10:
         break
