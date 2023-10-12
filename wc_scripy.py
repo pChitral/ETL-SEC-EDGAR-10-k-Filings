@@ -45,12 +45,18 @@ def extract_mda_section(file_path: str) -> str:
         match.start() for match in re.finditer(r"item\s*8\.", lower_parsed_text)
     ]
 
-    # If we have less than 2 occurrences of "item 7.", return section not found
-    if len(item_7_matches) < 2:
+    # If we don't have any occurrence of "item 7." or "item 8.", return section not found
+    if not item_7_matches or not item_8_matches:
         return "MD&A section not found."
 
-    # Extract content between the second occurrence of "item 7." and the occurrence of "item 8." after that
-    section_content = parsed_text[item_7_matches[1] : item_8_matches[1]].strip()
+    # Choose the starting point based on the number of occurrences of "item 7."
+    start_idx = item_7_matches[1] if len(item_7_matches) > 1 else item_7_matches[0]
+
+    # Choose the ending point based on the number of occurrences of "item 8."
+    end_idx = item_8_matches[1] if len(item_8_matches) > 1 else item_8_matches[0]
+
+    # Extract content between the chosen "item 7." occurrence and the chosen "item 8." occurrence
+    section_content = parsed_text[start_idx:end_idx].strip()
 
     return section_content
 
