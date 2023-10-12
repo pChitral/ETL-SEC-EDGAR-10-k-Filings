@@ -60,10 +60,7 @@ def parse_html_file(file_path):
 def new_10k_reports_to_supabase(parsed_data_list, client):
     for data in parsed_data_list:
         response = client.table("reports_10k").insert(data).execute()
-        if response.status_code != 201:
-            print(
-                f"Failed to insert data for {data['ticker']} - {data['accession_number']}: {response.text}"
-            )
+        # We won't check the status code here.
 
 
 def process_ticker_10k_data(ticker):
