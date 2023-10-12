@@ -21,7 +21,7 @@ Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 def extract_mda_section(file_path: str) -> str:
     """
     Extract the "Management’s Discussion and Analysis of Financial Condition and Results of Operations"
-    section from a 10-K report HTML file.
+    section from a 10-K report HTML file by first parsing the HTML content.
 
     Args:
     - file_path (str): Path to the HTML file of the 10-K report.
@@ -29,25 +29,30 @@ def extract_mda_section(file_path: str) -> str:
     Returns:
     - str: Text of the MDA section.
     """
-    # Load the content of the HTML file
+    # Load and parse the HTML file content
     with open(file_path, "r", encoding="utf-8") as file:
-        html_content = file.read()
+        soup = BeautifulSoup(file.read(), "html.parser")
 
-    # Convert the entire content to lowercase
-    lower_content = html_content.lower()
-
-    # Using a regex pattern to extract the content between the second occurrences of "item 7." and "item 8."
-    pattern = r"(?:item\s*7\.)(?:.*?item\s*7\.)(.*?)(?:item\s*8\.)"
-    match = re.search(pattern, lower_content, re.DOTALL)
-
-    # Extract matched content if found
-    section_content = match.group(1).strip() if match else "Section not found."
-
-    # Parse the HTML content to retrieve the text
-    soup = BeautifulSoup(section_content, "html.parser")
+    # Convert the parsed content to text and lowercase it
     parsed_text = soup.get_text()
+    lower_parsed_text = parsed_text.lower()
 
-    return parsed_text
+    # Using a regex pattern to find all occurrences of "item 7." and "item 8."
+    item_7_matches = [
+        match.start() for match in re.finditer(r"item\s*7\.", lower_parsed_text)
+    ]
+    item_8_matches = [
+        match.start() for match in re.finditer(r"item\s*8\.", lower_parsed_text)
+    ]
+
+    # If we have less than 2 occurrences of "item 7.", return section not found
+    if len(item_7_matches) < 2:
+        return "MD&A section not found."
+
+    # Extract content between the second occurrence of "item 7." and the occurrence of "item 8." after that
+    section_content = parsed_text[item_7_matches[1] : item_8_matches[1]].strip()
+
+    return section_content
 
 
 def find_general_section(section_title, text):
