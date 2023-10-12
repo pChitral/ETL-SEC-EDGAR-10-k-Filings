@@ -37,7 +37,7 @@ def extract_mdna_section(content):
 
 
 # Read the words from the provided file
-with open("/mnt/data/words_fraud_constraints.json", "r") as file:
+with open("words_fraud_constraints.json", "r") as file:
     target_words = json.load(file)
 
 
