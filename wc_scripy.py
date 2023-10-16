@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from bs4 import BeautifulSoup
+
 from supabase import create_client
 from dotenv import load_dotenv
 from collections import Counter
@@ -9,75 +9,15 @@ from utils.get_ticker_10k_filings import get_ticker_10k_filings
 from utils.collect_ticker_files import collect_ticker_files
 from utils.delete_txt_files import delete_txt_files
 from shutil import rmtree
-import re
 from collections import Counter
 import json
+from utils.extract_mda_section import extract_mda_section
 
 # Supabase API keys
 load_dotenv()
 SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_KEY"]
 Client = create_client(SUPABASE_URL, SUPABASE_KEY)
-
-ITEM_7_PATTERN = re.compile(r"item\s*7\.")
-ITEM_8_PATTERN = re.compile(r"item\s*8\.")
-
-
-def extract_mda_section(file_path: str) -> str:
-    """
-    Extract the "Management’s Discussion and Analysis of Financial Condition and Results of Operations"
-    section from a 10-K report HTML file by first parsing the HTML content.
-
-    Args:
-    - file_path (str): Path to the HTML file of the 10-K report.
-
-    Returns:
-    - str: Cleaned text of the MDA section.
-    """
-    # Load and parse the HTML file content
-    with open(file_path, "r", encoding="utf-8") as file:
-        soup = BeautifulSoup(file.read(), "html.parser")
-
-    # Convert the parsed content to text and lowercase it
-    parsed_text = soup.get_text()
-    lower_parsed_text = parsed_text.lower()
-
-    # Using the precompiled regex patterns to find all occurrences of "item 7." and "item 8."
-    item_7_matches = [
-        match.start() for match in ITEM_7_PATTERN.finditer(lower_parsed_text)
-    ]
-    item_8_matches = [
-        match.start() for match in ITEM_8_PATTERN.finditer(lower_parsed_text)
-    ]
-
-    # If we don't have any occurrence of "item 7." or "item 8.", return section not found
-    if not item_7_matches or not item_8_matches:
-        return "MD&A section not found."
-
-    # Choose the starting point based on the number of occurrences of "item 7."
-    start_idx = item_7_matches[1] if len(item_7_matches) > 1 else item_7_matches[0]
-
-    # Choose the ending point based on the number of occurrences of "item 8."
-    end_idx = item_8_matches[1] if len(item_8_matches) > 1 else item_8_matches[0]
-
-    # Extract content between the chosen "item 7." occurrence and the chosen "item 8." occurrence
-    section_content = parsed_text[start_idx:end_idx].strip()
-
-    # Cleanup: Remove extra whitespace, newlines, and HTML entities
-    section_content = " ".join(section_content.split())
-    section_content = BeautifulSoup(section_content, "html.parser").get_text()
-
-    return section_content
-
-
-def find_general_section(section_title, text):
-    start = text.find(section_title)
-    if start == -1:
-        return None
-    end = text.find("ITEM", start + 1)
-    if end == -1:
-        end = None
-    return text[start:end].strip()
 
 
 # Load the JSON file
@@ -120,9 +60,6 @@ def parse_html_file(file_path):
         "MD&A": mda_section if mda_section else "MD&A section not found",
         "target_word_frequency": get_word_frequencies(mda_section),
     }
-
-
-import pandas as pd
 
 
 def new_10k_reports_to_supabase(all_parsed_data_list, Client):
