@@ -6,6 +6,7 @@ from shutil import rmtree
 from dotenv import load_dotenv
 import os
 from supabase import create_client
+from utils.new_10k_reports_to_supabase_mda import new_10k_reports_to_supabase_mda
 
 # Supabase API keys
 load_dotenv()
