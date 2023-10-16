@@ -26,8 +26,6 @@ def get_word_frequencies(text):
     frequency = Counter(words)
 
     # Extract frequencies of the target words
-    target_frequencies = {
-        word: frequency[word] for word in target_words if word in frequency
-    }
+    target_frequencies = {word: frequency.get(word, 0) for word in target_words}
 
     return json.dumps(target_frequencies)
