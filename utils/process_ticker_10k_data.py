@@ -57,7 +57,8 @@ def process_ticker_10k_data(ticker):
                     "cik": CIK,
                     "year": int(Year),
                     "accession_number": AccessionNumber,
-                    "mda_section": parsed_data.get("MD&A", "Section not found"),
+                    # "mda_section": parsed_data.get("MD&A", "Section not found"),
+                    "mda_section": 0,
                     "target_word_frequency": parsed_data.get("target_word_frequency", "{}"),
                 }
             except ValueError:
