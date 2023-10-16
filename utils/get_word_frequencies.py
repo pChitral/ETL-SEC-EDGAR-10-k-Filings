@@ -20,10 +20,10 @@ def get_word_frequencies(text):
     """
 
     # Split the text into individual words
-    words = text.split()
+    words = text.lower().split()
 
     # Calculate word frequencies for the entire text
-    frequency = Counter(words)
+    frequency = Counter(words)  
 
     # Extract frequencies of the target words
     target_frequencies = {word: frequency.get(word, 0) for word in target_words}
