@@ -1,17 +1,12 @@
-import os
-import json
-import re
-import pandas as pd
-from bs4 import BeautifulSoup
-from supabase import create_client
-from shutil import rmtree
-from dotenv import load_dotenv
-
 from utils.get_ticker_10k_filings import get_ticker_10k_filings
 from utils.collect_ticker_files import collect_ticker_files
-from utils.new_10k_reports_to_supabase import new_10k_reports_to_supabase
 from utils.delete_txt_files import delete_txt_files
-from utils.parse_html_file import parse_html_file
+from utils.parse_html_file_mda import parse_html_file_mda
+from shutil import rmtree
+from dotenv import load_dotenv
+import os
+from supabase import create_client
+from utils.new_10k_reports_to_supabase_mda import new_10k_reports_to_supabase_mda
 
 # Supabase API keys
 load_dotenv()
@@ -21,7 +16,6 @@ Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
 def process_ticker_10k_data(ticker):
-    # Download 10-K filings
     try:
         get_ticker_10k_filings(ticker)
     except Exception as e:
@@ -29,14 +23,9 @@ def process_ticker_10k_data(ticker):
         return {}
 
     ticker_files_dict = collect_ticker_files()
-
-    # Delete .txt files to save space
     delete_txt_files(ticker_files_dict.get(ticker, []))
 
-    # Initialize a dictionary to hold all parsed data
     all_parsed_data = {}
-
-    # Loop through each HTML file to parse and store the data
     for html_file in ticker_files_dict.get(ticker, []):
         if html_file.endswith(".html"):
             path_parts = html_file.split("/")
@@ -46,10 +35,18 @@ def process_ticker_10k_data(ticker):
                 print(f"Skipping file with unexpected format: {html_file}")
                 continue
 
-            CIK, Year, AccessionNumber = cik_year_acc
-
+            CIK = cik_year_acc[0]
+            # Convert the two-digit year to four digits
+            two_digit_year = cik_year_acc[1]
+            if (
+                int(two_digit_year) > 50
+            ):  # Assuming we're starting from 1950 for simplicity
+                Year = "19" + two_digit_year
+            else:
+                Year = "20" + two_digit_year
+            AccessionNumber = cik_year_acc[2]
             try:
-                parsed_data = parse_html_file(html_file)
+                parsed_data = parse_html_file_mda(html_file)
             except Exception as e:
                 print(f"Could not parse {html_file} due to error: {e}")
                 continue
@@ -60,38 +57,19 @@ def process_ticker_10k_data(ticker):
                     "cik": CIK,
                     "year": int(Year),
                     "accession_number": AccessionNumber,
-                    "risk_factor": parsed_data.get("Risk Factors", "Section not found"),
-                    "all_text": parsed_data.get("all_text", ""),
+                    # "mda_section": parsed_data.get("MD&A", "Section not found"),
+                    "mda_section": 0,
+                    "target_word_frequency": parsed_data.get("target_word_frequency", "{}"),
                 }
-
             except ValueError:
                 print(f"Skipping file with invalid year format in {html_file}")
                 continue
 
             all_parsed_data[AccessionNumber] = filing_dict
 
-    # Create a list of all parsed data dictionaries
     all_parsed_data_list = list(all_parsed_data.values())
-
-    # Insert parsed data into Supabase
-    new_10k_reports_to_supabase(all_parsed_data_list, Client)
-
-    # # Clear the data folder after processing
-    # if os.path.exists("data"):
-    #     rmtree("data")
-
+    new_10k_reports_to_supabase_mda(all_parsed_data_list, Client)
+    # Clear the data folder after processing
+    if os.path.exists("data"):
+        rmtree("data")
     return all_parsed_data
-
-
-# Read the JSON file into a DataFrame
-df = pd.read_json("company_tickers.json", orient="index")
-
-# Process each ticker
-all_tickers_data = {}
-tickers = df["ticker"].tolist()
-count = 0   
-for ticker in tickers:
-    all_tickers_data[ticker] = process_ticker_10k_data(ticker)
-    count += 1
-    if count > 3:
-        break
