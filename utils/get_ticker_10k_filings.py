@@ -22,10 +22,14 @@ def get_ticker_10k_filings(ticker, max_retries=5, backoff_factor=1.0):
     # Create a downloader instance with the "data" folder as the destination
     dl = Downloader("SUNY_Buffalo", "hello@buffalo.edu", "data")
 
+    # Delay to respect SEC's rate limit of 10 requests per second
+    request_delay = 0.1  # 10 requests per second
+
     for attempt in range(max_retries):
         try:
             # Get all 10-K filings for the specified ticker
             dl.get("10-K", ticker, download_details=True)
+            time.sleep(request_delay)  # Respect rate limit
             return True  # Successful download
         except Exception as e:
             logging.error(f"Attempt {attempt + 1} failed for {ticker}: {e}")
@@ -37,19 +41,3 @@ def get_ticker_10k_filings(ticker, max_retries=5, backoff_factor=1.0):
     # If all attempts fail, log and return False
     logging.error(f"All attempts to download 10-K filings for {ticker} have failed.")
     return False
-
-
-# Example usage:
-if __name__ == "__main__":
-    # Set up logging configuration to save errors to a file
-    logging.basicConfig(
-        filename="error_log.txt",
-        level=logging.ERROR,
-        format="%(asctime)s - %(levelname)s - %(message)s",
-    )
-
-    ticker_name = "MSFT"  # Replace this with the desired ticker name
-    success = get_ticker_10k_filings(ticker_name)
-
-    if not success:
-        logging.error(f"Failed to download filings for {ticker_name}")

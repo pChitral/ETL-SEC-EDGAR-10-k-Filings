@@ -121,7 +121,7 @@ if __name__ == "__main__":
 
     # Parallel processing of tickers
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [executor.submit(process_single_ticker, ticker) for ticker in tickers]
+        futures = [executor.submit(process_single_ticker, ticker) for ticker in tickers[:10]]
         all_tickers_data_frames = [
             future.result() for future in concurrent.futures.as_completed(futures)
         ]
