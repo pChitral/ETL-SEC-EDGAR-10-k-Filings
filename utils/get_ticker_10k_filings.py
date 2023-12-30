@@ -1,43 +1,36 @@
 import logging
 import time
 from sec_edgar_downloader import Downloader
+from requests.exceptions import HTTPError
 
 
-def get_ticker_10k_filings(ticker, max_retries=5, backoff_factor=1.0):
+def get_ticker_10k_filings(cik, max_retries=5, initial_backoff=1.0, backoff_factor=2.0):
     """
-    Downloads all the 10-K filings for a given ticker from the SEC Edgar website with retry logic.
-
-    Parameters:
-        ticker (str): The ticker symbol of the company whose 10-K filings are to be downloaded.
-        max_retries (int): Maximum number of retry attempts.
-        backoff_factor (float): Factor to determine the wait time between retries.
-
-    Returns:
-        bool: True if the download is successful, False otherwise.
-
-    Example:
-        get_ticker_10k_filings("MSFT")
+    Enhanced downloading of 10-K filings with refined rate limiting and retry logic.
     """
-
-    # Create a downloader instance with the "data" folder as the destination
     dl = Downloader("SUNY_Buffalo", "hello@buffalo.edu", "data")
-
-    # Delay to respect SEC's rate limit of 10 requests per second
-    request_delay = 0.1  # 10 requests per second
+    sleep_time = initial_backoff
 
     for attempt in range(max_retries):
         try:
-            # Get all 10-K filings for the specified ticker
-            dl.get("10-K", ticker, download_details=True)
-            time.sleep(request_delay)  # Respect rate limit
-            return True  # Successful download
+            dl.get("10-K", cik, download_details=True)
+            # Reset sleep time after successful request
+            sleep_time = initial_backoff
+        except HTTPError as e:
+            if e.response.status_code == 429:
+                logging.warning(
+                    f"Rate limit exceeded for CIK {cik}. Retrying in {sleep_time} seconds."
+                )
+            else:
+                logging.error(f"HTTP error for CIK {cik}: {e}")
         except Exception as e:
-            logging.error(f"Attempt {attempt + 1} failed for {ticker}: {e}")
+            logging.error(f"Attempt {attempt + 1} failed for CIK {cik}: {e}")
 
-            # Calculate sleep time using exponential backoff strategy
-            sleep_time = backoff_factor * (2**attempt)
+        if attempt < max_retries - 1:
             time.sleep(sleep_time)
+            sleep_time = min(
+                sleep_time * backoff_factor, 60
+            )  # Cap the sleep time at 60 seconds
 
-    # If all attempts fail, log and return False
-    logging.error(f"All attempts to download 10-K filings for {ticker} have failed.")
+    logging.error(f"All attempts to download 10-K filings for CIK {cik} have failed.")
     return False
