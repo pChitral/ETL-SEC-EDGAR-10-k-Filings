@@ -59,10 +59,9 @@ def process_ticker_10k_data(ticker):
     Returns:
     - list: A list of dictionaries containing the parsed data for each 10-K filing.
     """
-    try:
-        get_ticker_10k_filings(ticker)
-    except Exception as e:
-        print(f"Error occurred while downloading filings for {ticker}: {e}")
+    # Attempt to download the filings, and check if it was successful
+    if not get_ticker_10k_filings(ticker):
+        print(f"Failed to download filings for {ticker}. Skipping processing.")
         return []
 
     ticker_files_dict = collect_ticker_files()
