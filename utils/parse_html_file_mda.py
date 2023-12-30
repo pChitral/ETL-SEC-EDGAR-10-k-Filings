@@ -1,5 +1,4 @@
 from utils.extract_mda_section import extract_mda_section
-from utils.get_word_frequencies import get_word_frequencies
 
 
 def parse_html_file_mda(file_path):

@@ -8,6 +8,8 @@ from utils.collect_ticker_files import collect_ticker_files
 from utils.delete_txt_files import delete_txt_files
 from utils.parse_html_file_mda import parse_html_file_mda
 from filelock import FileLock
+import random
+import time
 
 # Set up basic configuration for logging
 logging.basicConfig(
@@ -125,11 +127,14 @@ if __name__ == "__main__":
     df = pd.read_json("company_tickers.json", orient="index")
     logging.basicConfig(level=logging.INFO)
     logging.info("Starting the processing of tickers.")
-    total_tickers = 4
-    # total_tickers = len(df)
+    # total_tickers = 4
+    total_tickers = len(df)
     all_tickers_data = []
 
     for batch_start in range(0, total_tickers, BATCH_SIZE):
+        sleep_time = random.uniform(1, 5)
+        time.sleep(sleep_time)
+
         batch_end = min(batch_start + BATCH_SIZE, total_tickers)
         tickers_batch = df.iloc[batch_start:batch_end]
 
