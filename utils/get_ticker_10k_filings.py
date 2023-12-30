@@ -4,7 +4,7 @@ from sec_edgar_downloader import Downloader
 from requests.exceptions import HTTPError
 
 
-def get_ticker_10k_filings(cik, max_retries=5, initial_backoff=1.0, backoff_factor=2.0):
+def get_ticker_10k_filings(cik, max_retries=5, initial_backoff=2.0, backoff_factor=2.0):
     """
     Enhanced downloading of 10-K filings with refined rate limiting and retry logic.
     """
@@ -14,8 +14,8 @@ def get_ticker_10k_filings(cik, max_retries=5, initial_backoff=1.0, backoff_fact
     for attempt in range(max_retries):
         try:
             dl.get("10-K", cik, download_details=True)
-            # Reset sleep time after successful request
-            sleep_time = initial_backoff
+            # Reset sleep time after successful request and return True
+            return True
         except HTTPError as e:
             if e.response.status_code == 429:
                 logging.warning(
@@ -29,8 +29,8 @@ def get_ticker_10k_filings(cik, max_retries=5, initial_backoff=1.0, backoff_fact
         if attempt < max_retries - 1:
             time.sleep(sleep_time)
             sleep_time = min(
-                sleep_time * backoff_factor, 60
-            )  # Cap the sleep time at 60 seconds
+                sleep_time * backoff_factor, 120
+            )  # Cap the sleep time at 120 seconds
 
     logging.error(f"All attempts to download 10-K filings for CIK {cik} have failed.")
     return False

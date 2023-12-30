@@ -7,6 +7,7 @@ from utils.get_ticker_10k_filings import get_ticker_10k_filings
 from utils.collect_ticker_files import collect_ticker_files
 from utils.delete_txt_files import delete_txt_files
 from utils.parse_html_file_mda import parse_html_file_mda
+from filelock import FileLock
 
 # Set up basic configuration for logging
 logging.basicConfig(
@@ -101,20 +102,32 @@ def process_single_ticker(ticker, cik, title):
     if ticker_data:
         ticker_df = pd.DataFrame(ticker_data)
         logging.info(f"Processed {len(ticker_df)} 10-K filings for {ticker}")
-        return ticker_df
+        return ticker_df, cik, ticker
     else:
         logging.info(f"No data to process for ticker: {ticker}")
-        return pd.DataFrame()
+        return pd.DataFrame(), cik, ticker
 
 
-BATCH_SIZE = 10  # Define the batch size
+def write_to_master_file(master_df):
+    with FileLock("all_ticker_10k_mda_data.csv.lock"):
+        master_df.to_csv("all_ticker_10k_mda_data.csv", index=False)
 
-# Main script execution
+
+BATCH_SIZE = 2  # Define the batch size
+
+
+def write_to_master_file(master_df):
+    with FileLock("all_ticker_10k_mda_data.csv.lock"):
+        master_df.to_csv("all_ticker_10k_mda_data.csv", index=False)
+
+
 if __name__ == "__main__":
     df = pd.read_json("company_tickers.json", orient="index")
+    logging.basicConfig(level=logging.INFO)
     logging.info("Starting the processing of tickers.")
-    total_tickers = 20
+    total_tickers = 4
     # total_tickers = len(df)
+    all_tickers_data = []
 
     for batch_start in range(0, total_tickers, BATCH_SIZE):
         batch_end = min(batch_start + BATCH_SIZE, total_tickers)
@@ -128,23 +141,22 @@ if __name__ == "__main__":
                 for index, row in tickers_batch.iterrows()
             ]
             for future in concurrent.futures.as_completed(futures):
-                result = future.result()
+                result, cik, ticker = future.result()
                 if result is not None and not result.empty:
-                    result.to_csv(
-                        "tickers_10k_data.csv",
-                        mode="a",
-                        header=not os.path.exists("tickers_10k_data.csv"),
-                        index=False,
-                    )
-                    logging.info(
-                        f"Processed ticker: {result['ticker'].iloc[0]} (Row {batch_start})"
-                    )
-                else:
-                    logging.info(f"Empty DataFrame for ticker: {row['ticker']}")
+                    # Save individual ticker data
+                    os.makedirs("ticker_data", exist_ok=True)
+                    result.to_csv(f"ticker_data/{ticker}.csv", index=False)
+                    all_tickers_data.append(result)
+                    logging.info(f"Processed ticker: {ticker}")
 
         processed_percentage = (batch_end / total_tickers) * 100
         logging.info(
             f"Completed {processed_percentage:.2f}% (Processed {batch_end} of {total_tickers} tickers)"
         )
+
+    # Concatenate all data and write to master file
+    if all_tickers_data:
+        master_df = pd.concat(all_tickers_data, ignore_index=True)
+        write_to_master_file(master_df)
 
     logging.info("All ticker data processed and exported.")
