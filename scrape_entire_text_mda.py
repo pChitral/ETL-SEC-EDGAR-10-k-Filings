@@ -1,12 +1,12 @@
 import concurrent.futures
 from datetime import datetime
+import os
+import pandas as pd
+import logging
 from utils.get_ticker_10k_filings import get_ticker_10k_filings
 from utils.collect_ticker_files import collect_ticker_files
 from utils.delete_txt_files import delete_txt_files
 from utils.parse_html_file_mda import parse_html_file_mda
-import os
-import pandas as pd
-import logging
 
 # Set up basic configuration for logging
 logging.basicConfig(
@@ -16,7 +16,7 @@ logging.basicConfig(
 )
 
 
-def process_html_file(html_file, ticker):
+def process_html_file(html_file, ticker, cik, title):
     """
     Process a single HTML file to extract the Management Discussion and Analysis (MDA) section.
 
@@ -36,17 +36,17 @@ def process_html_file(html_file, ticker):
             logging.warning(f"Skipping file with unexpected format: {html_file}")
             return None
 
-        CIK = cik_year_acc[0]
         two_digit_year = cik_year_acc[1]
         Year = (
             "19" + two_digit_year if int(two_digit_year) > 50 else "20" + two_digit_year
         )
-        AccessionNumber = cik_year_acc[2]
 
         try:
             parsed_data = parse_html_file_mda(html_file)
             filing_dict = {
+                "cik": cik,
                 "ticker": ticker,
+                "title": title,
                 "year": int(Year),
                 "mda_section": parsed_data,
                 "processed_timestamp": datetime.now(),
@@ -57,7 +57,7 @@ def process_html_file(html_file, ticker):
             return None
 
 
-def process_ticker_10k_data(ticker):
+def process_ticker_10k_data(ticker, cik, title):
     """
     Process the 10-K filings for a given ticker.
 
@@ -77,7 +77,9 @@ def process_ticker_10k_data(ticker):
 
     html_files = ticker_files_dict.get(ticker, [])
     with concurrent.futures.ThreadPoolExecutor() as executor:
-        results = executor.map(lambda file: process_html_file(file, ticker), html_files)
+        results = executor.map(
+            lambda file: process_html_file(file, ticker, cik, title), html_files
+        )
         all_parsed_data = {
             result["processed_timestamp"]: result
             for result in results
@@ -91,17 +93,11 @@ def process_ticker_10k_data(ticker):
     return all_parsed_data_list
 
 
-def process_single_ticker(ticker):
+def process_single_ticker(ticker, cik, title):
     """
     Process a single ticker's 10-K filings.
-
-    Args:
-    - ticker (str): Ticker symbol of the company.
-
-    Returns:
-    - DataFrame: A pandas DataFrame containing the parsed data for the ticker.
     """
-    ticker_data = process_ticker_10k_data(ticker)
+    ticker_data = process_ticker_10k_data(ticker, cik, title)
     if ticker_data:
         ticker_df = pd.DataFrame(ticker_data)
         logging.info(f"Processed {len(ticker_df)} 10-K filings for {ticker}")
@@ -111,24 +107,44 @@ def process_single_ticker(ticker):
         return pd.DataFrame()
 
 
+BATCH_SIZE = 10  # Define the batch size
+
 # Main script execution
 if __name__ == "__main__":
-    # Read the JSON file into a DataFrame
     df = pd.read_json("company_tickers.json", orient="index")
-    tickers = df["ticker"].tolist()
-
     logging.info("Starting the processing of tickers.")
+    total_tickers = 20
+    # total_tickers = len(df)
 
-    # Parallel processing of tickers
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        futures = [executor.submit(process_single_ticker, ticker) for ticker in tickers[:10]]
-        all_tickers_data_frames = [
-            future.result() for future in concurrent.futures.as_completed(futures)
-        ]
+    for batch_start in range(0, total_tickers, BATCH_SIZE):
+        batch_end = min(batch_start + BATCH_SIZE, total_tickers)
+        tickers_batch = df.iloc[batch_start:batch_end]
 
-    # Combine all dataframes into one
-    all_tickers_df = pd.concat(all_tickers_data_frames, ignore_index=True)
+        with concurrent.futures.ThreadPoolExecutor() as executor:
+            futures = [
+                executor.submit(
+                    process_single_ticker, row["ticker"], row["cik_str"], row["title"]
+                )
+                for index, row in tickers_batch.iterrows()
+            ]
+            for future in concurrent.futures.as_completed(futures):
+                result = future.result()
+                if result is not None and not result.empty:
+                    result.to_csv(
+                        "tickers_10k_data.csv",
+                        mode="a",
+                        header=not os.path.exists("tickers_10k_data.csv"),
+                        index=False,
+                    )
+                    logging.info(
+                        f"Processed ticker: {result['ticker'].iloc[0]} (Row {batch_start})"
+                    )
+                else:
+                    logging.info(f"Empty DataFrame for ticker: {row['ticker']}")
 
-    # Export to CSV
-    all_tickers_df.to_csv("tickers_10k_data.csv", index=False)
-    logging.info("All ticker data processed and exported to 'tickers_10k_data.csv'.")
+        processed_percentage = (batch_end / total_tickers) * 100
+        logging.info(
+            f"Completed {processed_percentage:.2f}% (Processed {batch_end} of {total_tickers} tickers)"
+        )
+
+    logging.info("All ticker data processed and exported.")

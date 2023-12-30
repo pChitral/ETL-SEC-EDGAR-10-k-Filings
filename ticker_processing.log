@@ -1,0 +1,97 @@
+2023-12-30 14:35:38,664 - INFO - Starting the processing of tickers.
+2023-12-30 14:35:40,376 - ERROR - Attempt 1 failed for CIK GOOGL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001652044.json
+2023-12-30 14:35:40,376 - ERROR - Attempt 1 failed for CIK META: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001326801.json
+2023-12-30 14:35:40,387 - ERROR - Attempt 1 failed for CIK TSLA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001318605.json
+2023-12-30 14:35:40,404 - ERROR - Attempt 1 failed for CIK LLY: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000059478.json
+2023-12-30 14:35:40,404 - ERROR - Attempt 1 failed for CIK AAPL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000320193.json
+2023-12-30 14:35:40,406 - ERROR - Attempt 1 failed for CIK BRK-B: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001067983.json
+2023-12-30 14:35:40,410 - ERROR - Attempt 1 failed for CIK NVDA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001045810.json
+2023-12-30 14:35:40,415 - ERROR - Attempt 1 failed for CIK V: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001403161.json
+2023-12-30 14:35:40,426 - ERROR - Attempt 1 failed for CIK MSFT: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000789019.json
+2023-12-30 14:35:40,462 - ERROR - Attempt 1 failed for CIK AMZN: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001018724.json
+2023-12-30 14:35:40,621 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 10 items
+2023-12-30 14:35:41,533 - ERROR - Attempt 2 failed for CIK META: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001326801.json
+2023-12-30 14:35:41,542 - ERROR - Attempt 2 failed for CIK GOOGL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001652044.json
+2023-12-30 14:35:41,553 - ERROR - Attempt 2 failed for CIK TSLA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001318605.json
+2023-12-30 14:35:41,575 - ERROR - Attempt 2 failed for CIK V: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001403161.json
+2023-12-30 14:35:41,575 - ERROR - Attempt 2 failed for CIK BRK-B: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001067983.json
+2023-12-30 14:35:41,579 - ERROR - Attempt 2 failed for CIK LLY: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000059478.json
+2023-12-30 14:35:41,581 - ERROR - Attempt 2 failed for CIK MSFT: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000789019.json
+2023-12-30 14:35:41,582 - ERROR - Attempt 2 failed for CIK AAPL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000320193.json
+2023-12-30 14:35:41,586 - ERROR - Attempt 2 failed for CIK NVDA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001045810.json
+2023-12-30 14:35:41,654 - ERROR - Attempt 2 failed for CIK AMZN: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001018724.json
+2023-12-30 14:35:42,627 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 20 items
+2023-12-30 14:35:43,693 - ERROR - Attempt 3 failed for CIK META: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001326801.json
+2023-12-30 14:35:43,702 - ERROR - Attempt 3 failed for CIK GOOGL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001652044.json
+2023-12-30 14:35:43,703 - ERROR - Attempt 3 failed for CIK TSLA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001318605.json
+2023-12-30 14:35:43,750 - ERROR - Attempt 3 failed for CIK BRK-B: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001067983.json
+2023-12-30 14:35:43,761 - ERROR - Attempt 3 failed for CIK V: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001403161.json
+2023-12-30 14:35:43,761 - ERROR - Attempt 3 failed for CIK AAPL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000320193.json
+2023-12-30 14:35:43,762 - ERROR - Attempt 3 failed for CIK MSFT: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000789019.json
+2023-12-30 14:35:43,763 - ERROR - Attempt 3 failed for CIK LLY: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000059478.json
+2023-12-30 14:35:43,782 - ERROR - Attempt 3 failed for CIK NVDA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001045810.json
+2023-12-30 14:35:43,847 - ERROR - Attempt 3 failed for CIK AMZN: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001018724.json
+2023-12-30 14:35:44,630 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 9 items
+2023-12-30 14:35:46,636 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 1 items
+2023-12-30 14:35:47,873 - ERROR - Attempt 4 failed for CIK TSLA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001318605.json
+2023-12-30 14:35:47,875 - ERROR - Attempt 4 failed for CIK META: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001326801.json
+2023-12-30 14:35:47,876 - ERROR - Attempt 4 failed for CIK GOOGL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001652044.json
+2023-12-30 14:35:47,914 - ERROR - Attempt 4 failed for CIK BRK-B: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001067983.json
+2023-12-30 14:35:47,928 - ERROR - Attempt 4 failed for CIK V: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001403161.json
+2023-12-30 14:35:47,930 - ERROR - Attempt 4 failed for CIK NVDA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001045810.json
+2023-12-30 14:35:47,931 - ERROR - Attempt 4 failed for CIK AAPL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000320193.json
+2023-12-30 14:35:47,933 - ERROR - Attempt 4 failed for CIK LLY: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000059478.json
+2023-12-30 14:35:47,934 - ERROR - Attempt 4 failed for CIK MSFT: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000789019.json
+2023-12-30 14:35:47,987 - ERROR - Attempt 4 failed for CIK AMZN: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001018724.json
+2023-12-30 14:35:48,641 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:35:50,645 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 10 items
+2023-12-30 14:35:52,650 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:35:54,652 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:35:56,045 - ERROR - Attempt 5 failed for CIK META: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001326801.json
+2023-12-30 14:35:56,050 - ERROR - Attempt 5 failed for CIK GOOGL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001652044.json
+2023-12-30 14:35:56,062 - ERROR - Attempt 5 failed for CIK TSLA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001318605.json
+2023-12-30 14:35:56,071 - ERROR - Attempt 5 failed for CIK BRK-B: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001067983.json
+2023-12-30 14:35:56,088 - ERROR - Attempt 5 failed for CIK LLY: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000059478.json
+2023-12-30 14:35:56,104 - ERROR - Attempt 5 failed for CIK MSFT: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000789019.json
+2023-12-30 14:35:56,104 - ERROR - Attempt 5 failed for CIK NVDA: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001045810.json
+2023-12-30 14:35:56,106 - ERROR - Attempt 5 failed for CIK AAPL: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0000320193.json
+2023-12-30 14:35:56,110 - ERROR - Attempt 5 failed for CIK V: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001403161.json
+2023-12-30 14:35:56,127 - ERROR - Attempt 5 failed for CIK AMZN: 429 Client Error: Too Many Requests for url: https://data.sec.gov/submissions/CIK0001018724.json
+2023-12-30 14:35:56,655 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:35:58,661 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 10 items
+2023-12-30 14:36:00,667 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:36:02,671 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:36:04,674 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:36:06,680 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:36:08,681 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:36:10,687 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x11e3ba790>, 0 items
+2023-12-30 14:36:12,056 - ERROR - All attempts to download 10-K filings for CIK META have failed.
+2023-12-30 14:36:12,056 - INFO - Failed to download filings for META. Skipping processing.
+2023-12-30 14:36:12,059 - ERROR - All attempts to download 10-K filings for CIK GOOGL have failed.
+2023-12-30 14:36:12,059 - INFO - No data to process for ticker: META
+2023-12-30 14:36:12,059 - INFO - Failed to download filings for GOOGL. Skipping processing.
+2023-12-30 14:36:12,060 - INFO - No data to process for ticker: GOOGL
+2023-12-30 14:36:12,068 - ERROR - All attempts to download 10-K filings for CIK TSLA have failed.
+2023-12-30 14:36:12,069 - INFO - Failed to download filings for TSLA. Skipping processing.
+2023-12-30 14:36:12,069 - INFO - No data to process for ticker: TSLA
+2023-12-30 14:36:12,076 - ERROR - All attempts to download 10-K filings for CIK BRK-B have failed.
+2023-12-30 14:36:12,077 - INFO - Failed to download filings for BRK-B. Skipping processing.
+2023-12-30 14:36:12,077 - INFO - No data to process for ticker: BRK-B
+2023-12-30 14:36:12,092 - ERROR - All attempts to download 10-K filings for CIK LLY have failed.
+2023-12-30 14:36:12,093 - INFO - Failed to download filings for LLY. Skipping processing.
+2023-12-30 14:36:12,093 - INFO - No data to process for ticker: LLY
+2023-12-30 14:36:12,111 - ERROR - All attempts to download 10-K filings for CIK AAPL have failed.
+2023-12-30 14:36:12,112 - ERROR - All attempts to download 10-K filings for CIK NVDA have failed.
+2023-12-30 14:36:12,114 - ERROR - All attempts to download 10-K filings for CIK MSFT have failed.
+2023-12-30 14:36:12,114 - INFO - Failed to download filings for AAPL. Skipping processing.
+2023-12-30 14:36:12,114 - INFO - No data to process for ticker: AAPL
+2023-12-30 14:36:12,114 - INFO - Failed to download filings for MSFT. Skipping processing.
+2023-12-30 14:36:12,114 - INFO - Failed to download filings for NVDA. Skipping processing.
+2023-12-30 14:36:12,115 - INFO - No data to process for ticker: MSFT
+2023-12-30 14:36:12,115 - INFO - No data to process for ticker: NVDA
+2023-12-30 14:36:12,117 - ERROR - All attempts to download 10-K filings for CIK V have failed.
+2023-12-30 14:36:12,117 - INFO - Failed to download filings for V. Skipping processing.
+2023-12-30 14:36:12,117 - INFO - No data to process for ticker: V
+2023-12-30 14:36:12,133 - ERROR - All attempts to download 10-K filings for CIK AMZN have failed.
+2023-12-30 14:36:12,134 - INFO - Failed to download filings for AMZN. Skipping processing.
+2023-12-30 14:36:12,134 - INFO - No data to process for ticker: AMZN
