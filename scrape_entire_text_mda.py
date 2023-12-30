@@ -6,6 +6,14 @@ from utils.delete_txt_files import delete_txt_files
 from utils.parse_html_file_mda import parse_html_file_mda
 import os
 import pandas as pd
+import logging
+
+# Set up basic configuration for logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s",
+    handlers=[logging.FileHandler("ticker_processing.log"), logging.StreamHandler()],
+)
 
 
 def process_html_file(html_file, ticker):
@@ -25,7 +33,7 @@ def process_html_file(html_file, ticker):
         cik_year_acc = path_parts[4].split("-")
 
         if len(cik_year_acc) < 3:
-            print(f"Skipping file with unexpected format: {html_file}")
+            logging.warning(f"Skipping file with unexpected format: {html_file}")
             return None
 
         CIK = cik_year_acc[0]
@@ -45,7 +53,7 @@ def process_html_file(html_file, ticker):
             }
             return filing_dict
         except Exception as e:
-            print(f"Could not parse {html_file} due to error: {e}")
+            logging.error(f"Could not parse {html_file} due to error: {e}")
             return None
 
 
@@ -61,7 +69,7 @@ def process_ticker_10k_data(ticker):
     """
     # Attempt to download the filings, and check if it was successful
     if not get_ticker_10k_filings(ticker):
-        print(f"Failed to download filings for {ticker}. Skipping processing.")
+        logging.info(f"Failed to download filings for {ticker}. Skipping processing.")
         return []
 
     ticker_files_dict = collect_ticker_files()
@@ -77,7 +85,9 @@ def process_ticker_10k_data(ticker):
         }
 
     all_parsed_data_list = list(all_parsed_data.values())
-    print(f"Completed processing {len(all_parsed_data_list)} HTML files for {ticker}")
+    logging.info(
+        f"Completed processing {len(all_parsed_data_list)} HTML files for {ticker}"
+    )
     return all_parsed_data_list
 
 
@@ -94,10 +104,10 @@ def process_single_ticker(ticker):
     ticker_data = process_ticker_10k_data(ticker)
     if ticker_data:
         ticker_df = pd.DataFrame(ticker_data)
-        print(f"Processed {len(ticker_df)} 10-K filings for {ticker}")
+        logging.info(f"Processed {len(ticker_df)} 10-K filings for {ticker}")
         return ticker_df
     else:
-        print(f"No data to process for ticker: {ticker}")
+        logging.info(f"No data to process for ticker: {ticker}")
         return pd.DataFrame()
 
 
@@ -106,6 +116,8 @@ if __name__ == "__main__":
     # Read the JSON file into a DataFrame
     df = pd.read_json("company_tickers.json", orient="index")
     tickers = df["ticker"].tolist()
+
+    logging.info("Starting the processing of tickers.")
 
     # Parallel processing of tickers
     with concurrent.futures.ThreadPoolExecutor() as executor:
@@ -119,4 +131,4 @@ if __name__ == "__main__":
 
     # Export to CSV
     all_tickers_df.to_csv("tickers_10k_data.csv", index=False)
-    print("All ticker data processed and exported to 'tickers_10k_data.csv'.")
+    logging.info("All ticker data processed and exported to 'tickers_10k_data.csv'.")
