@@ -20,6 +20,7 @@ ETL-10-K-Filings is an advanced, Python-based project focused on the extraction,
 
 ## Documentation Structure
 
+```text
 .
 ├── CODE_OF_CONDUCT.md
 ├── LICENSE
@@ -55,11 +56,11 @@ ETL-10-K-Filings is an advanced, Python-based project focused on the extraction,
         ├── process_single_ticker.py
         └── process_ticker_10k_data.py
 
-11 directories, 23 files
+```
 
 The documentation of ETL-10-K-Filings is meticulously crafted to guide users through the project's intricacies. It covers the detailed architecture of the project, including setup instructions, a comprehensive workflow description, and guidelines for future developments and maintenance.
 
-# Project Structure Overview of ETL-10-K-Filings
+## Project Structure Overview of ETL-10-K-Filings
 
 ## Folder Structure
 
@@ -76,7 +77,7 @@ The ETL-10-K-Filings project is organized into a structured directory system, fa
 
 Each component within the ETL-10-K-Filings is designed to serve a specific function, contributing to the overall efficiency and effectiveness of the project. The careful organization of files and directories ensures a systematic workflow, allowing for easy maintenance and scalability.
 
-# Main Script Analysis of ETL-10-K-Filings
+## Main Script Analysis of ETL-10-K-Filings
 
 ## Overview of `scrape_entire_text_mda.py`
 
@@ -93,7 +94,7 @@ The `scrape_entire_text_mda.py` script acts as the main entry point for the ETL-
 - **Concurrent Processing**: Leverages `concurrent.futures` for multitasking, enhancing the speed and efficiency of data processing.
 - **Logging and Status Tracking**: Employs robust logging for tracking the process flow and status, aiding in debugging and monitoring.
 
-# Detailed Component Documentation of ETL-10-K-Filings
+## Detailed Component Documentation of ETL-10-K-Filings
 
 ## Utils Module
 
