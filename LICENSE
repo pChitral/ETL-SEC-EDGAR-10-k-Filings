@@ -1,45 +1,43 @@
-# MIT License for ETL-10-K-Filings
+MIT License for ETL-10-K-Filings
 
-## License Terms and Conditions
+License Terms and Conditions
 
-### Copyright
+Copyright
 
-Copyright (c) [Year] Chitral Patil
+Copyright (c) 2024 Chitral Patil
 
-### Grant of Rights
+Grant of Rights
 
-Permission is hereby granted, free of charge, to any person or organization obtaining a copy of the ETL-10-K-Filings software and associated documentation files (collectively, the "Software"), to use, modify, and interact with the Software without restriction. This includes, without limitation, the rights to:
+Permission is hereby granted, free of charge, to any person or organization obtaining a copy of the ETL-10-K-Filings software and associated documentation files (the "Software"), to use, modify, and interact with the Software without restriction. This includes, without limitation, the rights to:
 
-- **Use**: Utilize the Software for personal or commercial purposes.
-- **Copy**: Create copies of the Software for backup or archival purposes.
-- **Modify**: Alter, transform, or build upon the Software to suit personal needs or for the benefit of the community.
-- **Merge**: Combine the Software with other software or modifications.
-- **Publish**: Share the Software with others, making it available to the public.
-- **Distribute**: Distribute copies of the Software to others, either freely or for a fee.
-- **Sub-license**: Grant a sub-license to use, copy, modify, or distribute the Software.
+Use: Utilize the Software for personal or commercial purposes.
+Copy: Create copies of the Software for backup or archival purposes.
+Modify: Alter, transform, or build upon the Software to suit personal needs or for the benefit of the community.
+Merge: Combine the Software with other software or modifications.
+Publish: Share the Software with others, making it available to the public.
+Distribute: Distribute copies of the Software to others, either freely or for a fee.
+Sub-license: Grant a sub-license to use, copy, modify, or distribute the Software.
 
-### Conditions
+Conditions
 
 The distribution of the Software or its derivatives is subject to the following conditions:
 
-- **Inclusion of Copyright and Permission Notice**: All copies, substantial portions, or modified versions of the Software must include the above copyright notice and this permission notice.
+Inclusion of Copyright and Permission Notice: All copies, substantial portions, or modified versions of the Software must include the above copyright notice and this permission notice.
 
-### Disclaimer of Warranty
+Disclaimer of Warranty
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. The absence of any warranty includes, but is not limited to, disclaiming implied warranties of:
 
-- **Merchantability**: There is no guarantee that the Software will meet your commercial needs or expectations.
-- **Fitness for a Particular Purpose**: The Software might not be suitable for specific tasks or intended uses.
-- **Non-infringement**: The use of the Software does not infringe on any third party's rights.
+Merchantability: There is no guarantee that the Software will meet your commercial needs or expectations.
+Fitness for a Particular Purpose: The Software might not be suitable for specific tasks or intended uses.
+Non-infringement: The use of the Software does not infringe on any third party's rights.
 
-### Limitation of Liability
+Limitation of Liability
 
 Under no circumstances shall the authors, contributors, or copyright holders of the Software be liable for any claim, damages, or other liabilities, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the Software or the use or other dealings in the Software.
 
-## Acknowledgements
+Acknowledgements
 
 This license is adapted from the MIT License, a widely respected and adopted open-source license in the software community. It is designed to encourage broad use and contribution to the project while protecting the rights of the creator and contributors.
-
----
 
 By using, contributing to, or distributing the ETL-10-K-Filings project, you agree to the terms and conditions outlined in this license.
