@@ -35,8 +35,8 @@ if __name__ == "__main__":
 
     logging.info("Starting the processing of tickers.")
 
-    # Set the total number of tickers to process (for testing purposes, set to 2)
-    total_tickers = 3
+    # Set the total number of tickers to process
+    total_tickers = len(df)
     all_tickers_data = []
 
     # Loop through tickers in batches for processing
