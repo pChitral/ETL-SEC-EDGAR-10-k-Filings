@@ -10929,3 +10929,219 @@
 2023-12-30 22:24:11,700 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fdf90e23f10>, 0 items
 2023-12-30 22:24:12,947 - INFO - Completed processing 19 HTML files for STZ
 2023-12-30 22:24:12,950 - INFO - Processed 19 10-K filings for STZ
+2023-12-31 03:07:13,111 - INFO - Starting the processing of tickers.
+2023-12-31 03:07:14,632 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:16,635 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 2 items
+2023-12-31 03:07:18,637 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 1 items
+2023-12-31 03:07:20,640 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 1 items
+2023-12-31 03:07:22,642 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 4 items
+2023-12-31 03:07:24,645 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 7 items
+2023-12-31 03:07:26,647 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 14 items
+2023-12-31 03:07:28,650 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 19 items
+2023-12-31 03:07:30,652 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 15 items
+2023-12-31 03:07:32,654 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 5 items
+2023-12-31 03:07:34,666 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:36,683 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:39,569 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:41,795 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:44,244 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:46,785 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:49,887 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:53,853 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:55,874 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:07:59,002 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:01,361 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:03,826 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:06,092 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:08,191 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:10,434 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:12,457 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:14,576 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:16,594 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:18,667 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:20,987 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:23,808 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:25,971 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:28,313 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:30,397 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:32,490 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:35,823 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:38,371 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:42,366 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:44,878 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:47,084 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:50,085 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:53,005 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:55,033 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:57,171 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:08:59,250 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:01,482 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:04,702 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:06,876 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:09,011 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:11,187 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:15,223 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:17,528 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:19,874 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:22,179 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:24,296 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:26,497 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:28,601 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:30,995 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:33,614 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:36,553 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:38,747 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:41,048 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:43,060 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:45,158 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:47,578 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:51,336 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:53,342 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:55,363 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:57,440 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:09:59,479 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:01,637 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:03,412 - INFO - Completed processing 22 HTML files for AAPL
+2023-12-31 03:10:03,425 - INFO - Processed 22 10-K filings for AAPL
+2023-12-31 03:10:03,663 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:04,197 - INFO - Processed ticker: AAPL
+2023-12-31 03:10:05,668 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:06,015 - INFO - Completed processing 22 HTML files for MSFT
+2023-12-31 03:10:06,016 - INFO - Processed 22 10-K filings for MSFT
+2023-12-31 03:10:06,092 - INFO - Processed ticker: MSFT
+2023-12-31 03:10:06,093 - INFO - Completed 0.02% (Processed 2 of 10909 tickers)
+2023-12-31 03:10:07,690 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:09,693 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:11,695 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 2 items
+2023-12-31 03:10:13,697 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:15,698 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 2 items
+2023-12-31 03:10:17,700 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 3 items
+2023-12-31 03:10:19,703 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:21,705 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 8 items
+2023-12-31 03:10:23,706 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 12 items
+2023-12-31 03:10:25,790 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 10 items
+2023-12-31 03:10:29,986 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:32,059 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:34,204 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:36,565 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:38,684 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:40,705 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:42,770 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:44,790 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:46,843 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:48,919 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:50,770 - INFO - Completed processing 8 HTML files for GOOGL
+2023-12-31 03:10:50,776 - INFO - Processed 8 10-K filings for GOOGL
+2023-12-31 03:10:50,808 - INFO - Processed ticker: GOOGL
+2023-12-31 03:10:50,954 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:52,973 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:55,185 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:57,685 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:10:59,910 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:02,074 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:04,155 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:06,478 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:09,624 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:11,666 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:14,013 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:16,183 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:18,806 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:21,102 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:23,276 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:25,343 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:27,422 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:29,496 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:31,523 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:33,703 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:35,817 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:37,879 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:40,329 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:42,361 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:44,415 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:46,449 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:48,467 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:50,501 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:53,231 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:54,286 - INFO - Completed processing 21 HTML files for AMZN
+2023-12-31 03:11:54,288 - INFO - Processed 21 10-K filings for AMZN
+2023-12-31 03:11:54,344 - INFO - Processed ticker: AMZN
+2023-12-31 03:11:54,344 - INFO - Completed 0.04% (Processed 4 of 10909 tickers)
+2023-12-31 03:11:55,244 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:57,247 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:11:59,249 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:01,252 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 2 items
+2023-12-31 03:12:03,254 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 2 items
+2023-12-31 03:12:05,257 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:07,260 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 6 items
+2023-12-31 03:12:09,262 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 1 items
+2023-12-31 03:12:11,265 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 16 items
+2023-12-31 03:12:13,267 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 14 items
+2023-12-31 03:12:14,382 - INFO - Completed processing 0 HTML files for NVDA
+2023-12-31 03:12:14,383 - INFO - No data to process for ticker: NVDA
+2023-12-31 03:12:15,313 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:17,978 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:21,079 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:23,137 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:25,720 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:28,383 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:30,740 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:33,009 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:35,202 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:37,501 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:39,549 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:41,610 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:43,646 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:45,782 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:47,849 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:50,263 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:52,382 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:54,766 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:56,941 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:12:57,650 - INFO - Completed processing 13 HTML files for TSLA
+2023-12-31 03:12:57,652 - INFO - Processed 13 10-K filings for TSLA
+2023-12-31 03:12:57,709 - INFO - Processed ticker: TSLA
+2023-12-31 03:12:57,709 - INFO - Completed 0.06% (Processed 6 of 10909 tickers)
+2023-12-31 03:12:58,954 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:13:00,956 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:13:02,959 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 2 items
+2023-12-31 03:13:04,961 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:13:06,964 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 2 items
+2023-12-31 03:14:08,558 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:10,803 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:13,316 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:15,400 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:17,690 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:19,727 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:21,774 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:24,645 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:26,655 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:28,769 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:31,585 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:33,678 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:35,796 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:37,988 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:41,297 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:44,572 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:46,678 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:48,730 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:51,289 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:53,454 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:55,578 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:57,894 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:14:59,952 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:02,184 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:04,643 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:07,081 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:09,384 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:11,788 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:13,900 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:16,167 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:18,378 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:20,680 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:22,712 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:24,724 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:26,830 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:28,842 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:31,315 - INFO - (sync)leaking bucket: <pyrate_limiter.buckets.in_memory_bucket.InMemoryBucket object at 0x7fedb9b0fee0>, 0 items
+2023-12-31 03:15:33,232 - INFO - Completed processing 21 HTML files for BRK-B
+2023-12-31 03:15:33,234 - INFO - Processed 21 10-K filings for BRK-B
