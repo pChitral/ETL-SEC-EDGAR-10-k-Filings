@@ -1,75 +1,62 @@
+# Standard library imports
+import concurrent.futures
+import logging
+
+# Local application imports from utils module
 from utils.get_ticker_10k_filings import get_ticker_10k_filings
 from utils.collect_ticker_files import collect_ticker_files
 from utils.delete_txt_files import delete_txt_files
-from utils.parse_html_file_mda import parse_html_file_mda
-from shutil import rmtree
-from dotenv import load_dotenv
-import os
-from supabase import create_client
-from utils.new_10k_reports_to_supabase_mda import new_10k_reports_to_supabase_mda
-
-# Supabase API keys
-load_dotenv()
-SUPABASE_URL = os.environ["SUPABASE_URL"]
-SUPABASE_KEY = os.environ["SUPABASE_KEY"]
-Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+from utils.process_html_file import process_html_file
 
 
-def process_ticker_10k_data(ticker):
-    try:
-        get_ticker_10k_filings(ticker)
-    except Exception as e:
-        print(f"Error occurred while downloading filings for {ticker}: {e}")
-        return {}
+def process_ticker_10k_data(ticker, cik, title):
+    """
+    Process the 10-K filings for a given ticker.
 
+    This function manages the entire process of downloading, collecting, and processing
+    the HTML files of 10-K filings associated with a specific ticker.
+
+    Args:
+    - ticker (str): Ticker symbol of the company.
+    - cik (str): Central Index Key (CIK) of the company.
+    - title (str): The title associated with the company or filing.
+
+    Returns:
+    - list: A list of dictionaries, each containing the parsed data for a single 10-K filing.
+    """
+
+    # Attempt to download the filings for the given ticker
+    if not get_ticker_10k_filings(ticker):
+        logging.info(f"Failed to download filings for {ticker}. Skipping processing.")
+        return []
+
+    # Collect the downloaded ticker files
     ticker_files_dict = collect_ticker_files()
+
+    # Delete any text files associated with the ticker, if any
     delete_txt_files(ticker_files_dict.get(ticker, []))
 
-    all_parsed_data = {}
-    for html_file in ticker_files_dict.get(ticker, []):
-        if html_file.endswith(".html"):
-            path_parts = html_file.split("/")
-            cik_year_acc = path_parts[4].split("-")
+    # Retrieve the list of HTML files for the ticker
+    html_files = ticker_files_dict.get(ticker, [])
 
-            if len(cik_year_acc) < 3:
-                print(f"Skipping file with unexpected format: {html_file}")
-                continue
+    # Process each HTML file in parallel using ThreadPoolExecutor
+    with concurrent.futures.ThreadPoolExecutor() as executor:
+        # Map each file to the processing function and collect results
+        results = executor.map(
+            lambda file: process_html_file(file, ticker, cik, title), html_files
+        )
 
-            CIK = cik_year_acc[0]
-            # Convert the two-digit year to four digits
-            two_digit_year = cik_year_acc[1]
-            if (
-                int(two_digit_year) > 50
-            ):  # Assuming we're starting from 1950 for simplicity
-                Year = "19" + two_digit_year
-            else:
-                Year = "20" + two_digit_year
-            AccessionNumber = cik_year_acc[2]
-            try:
-                parsed_data = parse_html_file_mda(html_file)
-            except Exception as e:
-                print(f"Could not parse {html_file} due to error: {e}")
-                continue
+        # Compile all parsed data into a list, filtering out None results
+        all_parsed_data = {
+            result["processed_timestamp"]: result
+            for result in results
+            if result is not None
+        }
 
-            try:
-                filing_dict = {
-                    "ticker": ticker,
-                    "cik": CIK,
-                    "year": int(Year),
-                    "accession_number": AccessionNumber,
-                    # "mda_section": parsed_data.get("MD&A", "Section not found"),
-                    "mda_section": 0,
-                    "target_word_frequency": parsed_data.get("target_word_frequency", "{}"),
-                }
-            except ValueError:
-                print(f"Skipping file with invalid year format in {html_file}")
-                continue
-
-            all_parsed_data[AccessionNumber] = filing_dict
-
+    # Convert the dictionary of parsed data to a list
     all_parsed_data_list = list(all_parsed_data.values())
-    new_10k_reports_to_supabase_mda(all_parsed_data_list, Client)
-    # Clear the data folder after processing
-    if os.path.exists("data"):
-        rmtree("data")
-    return all_parsed_data
+    logging.info(
+        f"Completed processing {len(all_parsed_data_list)} HTML files for {ticker}"
+    )
+
+    return all_parsed_data_list
