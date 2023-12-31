@@ -7,10 +7,10 @@ import random
 import time
 
 # Utility functions from the utils module for specific operations
-from utils.initialize_status_file import initialize_status_file
-from utils.update_status_file import update_status_file
-from utils.process_single_ticker import process_single_ticker
-from utils.write_to_master_file import write_to_master_file
+from utils.helpers.initialize_status_file import initialize_status_file
+from utils.helpers.update_status_file import update_status_file
+from utils.processing.process_single_ticker import process_single_ticker
+from utils.helpers.write_to_master_file import write_to_master_file
 
 # File locking mechanism to handle concurrent writes to a file
 from filelock import FileLock

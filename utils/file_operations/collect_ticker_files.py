@@ -1,5 +1,5 @@
 import logging
-from utils.TickerFilesCollector import TickerFilesCollector
+from utils.file_operations.TickerFilesCollector import TickerFilesCollector
 
 
 def collect_ticker_files(data_folder="data/sec-edgar-filings"):

@@ -1,4 +1,4 @@
-from utils.extract_mda_section import extract_mda_section
+from utils.data_extraction.extract_mda_section import extract_mda_section
 
 import logging
 

@@ -4,9 +4,9 @@ import logging
 
 # Local application imports from utils module
 from utils.get_ticker_10k_filings import get_ticker_10k_filings
-from utils.collect_ticker_files import collect_ticker_files
-from utils.delete_txt_files import delete_txt_files
-from utils.process_html_file import process_html_file
+from utils.file_operations.collect_ticker_files import collect_ticker_files
+from utils.file_operations.delete_txt_files import delete_txt_files
+from utils.processing.process_html_file import process_html_file
 
 
 def process_ticker_10k_data(ticker, cik, title):

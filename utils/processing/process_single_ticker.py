@@ -1,7 +1,7 @@
-from utils.process_ticker_10k_data import process_ticker_10k_data
+from utils.processing.process_ticker_10k_data import process_ticker_10k_data
 import pandas as pd
 
-from utils.delete_processed_folder import delete_processed_folder
+from utils.helpers.delete_processed_folder import delete_processed_folder
 import logging
 
 
