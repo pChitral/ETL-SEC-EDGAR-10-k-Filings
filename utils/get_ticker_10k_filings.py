@@ -4,6 +4,10 @@ from sec_edgar_downloader import Downloader
 from requests.exceptions import HTTPError
 
 
+# Set the logging level for pyrate_limiter to WARNING or higher to suppress INFO messages
+logging.getLogger("pyrate_limiter").setLevel(logging.WARNING)
+
+
 def get_ticker_10k_filings(cik, max_retries=5, initial_backoff=2.0, backoff_factor=2.0):
     """
     Enhanced downloading of 10-K filings with refined rate limiting and retry logic.
