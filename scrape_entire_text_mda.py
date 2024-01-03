@@ -23,7 +23,7 @@ logging.basicConfig(
 )
 
 # Define the batch size for processing tickers
-BATCH_SIZE = 9
+BATCH_SIZE = 5
 
 if __name__ == "__main__":
     # Load company tickers data from a JSON file
