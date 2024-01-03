@@ -56,7 +56,7 @@ if __name__ == "__main__":
                 # Check if the ticker has already been processed
                 if not status_df.loc[
                     status_df["ticker"] == row["ticker"], "processed"
-                ].iloc[0]:
+                ].any():
                     # Submit ticker processing jobs to the executor
                     futures.append(
                         executor.submit(
