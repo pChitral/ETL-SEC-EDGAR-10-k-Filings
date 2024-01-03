@@ -23,7 +23,7 @@ logging.basicConfig(
 )
 
 # Define the batch size for processing tickers
-BATCH_SIZE = 5
+BATCH_SIZE = 9
 
 if __name__ == "__main__":
     # Load company tickers data from a JSON file
@@ -42,7 +42,7 @@ if __name__ == "__main__":
     # Loop through tickers in batches for processing
     for batch_start in range(0, total_tickers, BATCH_SIZE):
         # Introduce a random sleep time between batches
-        sleep_time = random.uniform(1, 5)
+        sleep_time = random.uniform(1, 2)
         time.sleep(sleep_time)
 
         # Determine the end of the current batch
