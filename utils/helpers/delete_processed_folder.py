@@ -1,3 +1,8 @@
+"""
+This module provides functionality to delete specific folders related to company tickers. 
+It includes a function to delete the folder containing 10-K filings for a given ticker.
+"""
+
 import shutil
 import logging
 from typing import NoReturn
