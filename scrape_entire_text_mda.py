@@ -75,7 +75,7 @@ if __name__ == "__main__":
                     os.makedirs("ticker_data", exist_ok=True)
                     # Save the processed data to a CSV file
                     result.to_csv(f"ticker_data/{ticker}.csv", index=False)
-                    all_tickers_data.append(result)
+                    # all_tickers_data.append(result)
                     # Log the processing of the ticker
                     logging.info(f"Processed ticker: {ticker}")
                     # Update the status file to mark the ticker as processed
@@ -87,10 +87,10 @@ if __name__ == "__main__":
             f"Completed {processed_percentage:.2f}% (Processed {batch_end} of {total_tickers} tickers)"
         )
 
-    # Concatenate all processed data and write to a master file
-    if all_tickers_data:
-        master_df = pd.concat(all_tickers_data, ignore_index=True)
-        write_to_master_file(master_df)
+    # # Concatenate all processed data and write to a master file
+    # if all_tickers_data:
+    #     master_df = pd.concat(all_tickers_data, ignore_index=True)
+    #     write_to_master_file(master_df)
 
     # Log completion of data processing
     logging.info("All ticker data processed and exported.")
