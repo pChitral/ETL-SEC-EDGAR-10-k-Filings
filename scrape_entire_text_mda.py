@@ -6,11 +6,13 @@ import logging
 import random
 import time
 
+
 # Utility functions from the utils module for specific operations
 from utils.helpers.initialize_status_file import initialize_status_file
 from utils.helpers.update_status_file import update_status_file
 from utils.processing.process_single_ticker import process_single_ticker
 from utils.helpers.write_to_master_file import write_to_master_file
+from utils.helpers.log_memory_usage import log_memory_usage
 
 # File locking mechanism to handle concurrent writes to a file
 from filelock import FileLock
@@ -41,6 +43,9 @@ if __name__ == "__main__":
 
     # Loop through tickers in batches for processing
     for batch_start in range(0, total_tickers, BATCH_SIZE):
+        # Log the memory usage before processing the batch
+        log_memory_usage()
+
         # Introduce a random sleep time between batches
         sleep_time = random.uniform(1, 2)
         time.sleep(sleep_time)
@@ -75,7 +80,7 @@ if __name__ == "__main__":
                     os.makedirs("ticker_data", exist_ok=True)
                     # Save the processed data to a CSV file
                     result.to_csv(f"ticker_data/{ticker}.csv", index=False)
-                    # all_tickers_data.append(result)
+
                     # Log the processing of the ticker
                     logging.info(f"Processed ticker: {ticker}")
                     # Update the status file to mark the ticker as processed
@@ -86,11 +91,7 @@ if __name__ == "__main__":
         logging.info(
             f"Completed {processed_percentage:.2f}% (Processed {batch_end} of {total_tickers} tickers)"
         )
-
-    # # Concatenate all processed data and write to a master file
-    # if all_tickers_data:
-    #     master_df = pd.concat(all_tickers_data, ignore_index=True)
-    #     write_to_master_file(master_df)
+    log_memory_usage()
 
     # Log completion of data processing
     logging.info("All ticker data processed and exported.")
