@@ -2,15 +2,29 @@ import logging
 import time
 from sec_edgar_downloader import Downloader
 from requests.exceptions import HTTPError
-
+from typing import Union, Any
 
 # Set the logging level for pyrate_limiter to WARNING or higher to suppress INFO messages
 logging.getLogger("pyrate_limiter").setLevel(logging.WARNING)
 
 
-def get_ticker_10k_filings(cik, max_retries=5, initial_backoff=2.0, backoff_factor=2.0):
+def get_ticker_10k_filings(
+    cik: Union[str, int],
+    max_retries: int = 5,
+    initial_backoff: float = 2.0,
+    backoff_factor: float = 2.0,
+) -> bool:
     """
     Enhanced downloading of 10-K filings with refined rate limiting and retry logic.
+
+    Args:
+        cik (Union[str, int]): Central Index Key (CIK) of the company.
+        max_retries (int): Maximum number of retry attempts.
+        initial_backoff (float): Initial time to wait between retry attempts.
+        backoff_factor (float): Factor by which to increase backoff time after each attempt.
+
+    Returns:
+        bool: True if download succeeds, False otherwise.
     """
     dl = Downloader("SUNY_Buffalo", "hello@buffalo.edu", "data")
     sleep_time = initial_backoff
@@ -18,7 +32,6 @@ def get_ticker_10k_filings(cik, max_retries=5, initial_backoff=2.0, backoff_fact
     for attempt in range(max_retries):
         try:
             dl.get("10-K", cik, download_details=True)
-            # Reset sleep time after successful request and return True
             return True
         except HTTPError as e:
             if e.response.status_code == 429:
