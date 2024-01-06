@@ -1,8 +1,9 @@
 import logging
 import time
+from typing import Union
+
 from sec_edgar_downloader import Downloader
 from requests.exceptions import HTTPError
-from typing import Union, Any
 
 # Set the logging level for pyrate_limiter to WARNING or higher to suppress INFO messages
 logging.getLogger("pyrate_limiter").setLevel(logging.WARNING)
@@ -36,12 +37,14 @@ def get_ticker_10k_filings(
         except HTTPError as e:
             if e.response.status_code == 429:
                 logging.warning(
-                    f"Rate limit exceeded for CIK {cik}. Retrying in {sleep_time} seconds."
+                    "Rate limit exceeded for CIK %s. Retrying in %s seconds.",
+                    cik,
+                    sleep_time,
                 )
             else:
-                logging.error(f"HTTP error for CIK {cik}: {e}")
+                logging.error("HTTP error for CIK %s: %s", cik, e)
         except Exception as e:
-            logging.error(f"Attempt {attempt + 1} failed for CIK {cik}: {e}")
+            logging.error("Attempt %s failed for CIK %s: %s", attempt + 1, cik, e)
 
         if attempt < max_retries - 1:
             time.sleep(sleep_time)
