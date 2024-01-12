@@ -5686,7 +5686,7 @@ EUDA,True
 DUOT,True
 GSD,True
 CTRM,False
-MIRO,False
+MIRO,True
 CKPT,True
 WWR,False
 PAVM,True
@@ -7959,11 +7959,11 @@ USB-PA,True
 BRK-A,True
 NONOF,False
 LVMHF,False
-JPM-PC,False
-JPM-PD,False
-BML-PG,False
-BML-PH,False
-BML-PL,False
+JPM-PC,True
+JPM-PD,True
+BML-PG,True
+BML-PH,True
+BML-PL,True
 BAC-PB,False
 BAC-PE,False
 BML-PJ,False
