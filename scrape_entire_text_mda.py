@@ -20,7 +20,7 @@ logging.basicConfig(
 )
 
 # Define the batch size for processing tickers
-BATCH_SIZE = 5
+BATCH_SIZE = 10
 
 
 def get_optimal_thread_count():
