@@ -20,20 +20,20 @@ logging.basicConfig(
 )
 
 # Define the batch size for processing tickers
-BATCH_SIZE = 10
+BATCH_SIZE = 5
 
 
 def get_optimal_thread_count():
-    # # Dynamically determine the optimal number of threads
-    # cpu_cores = os.cpu_count()
-    # # Use a portion of available cores to avoid overloading the system
-    # optimal_threads = max(1, int(cpu_cores * 0.75))
-    # return optimal_threads
-    total_nodes = 10
-    tasks_per_node = 10
-    # Using half the total tasks as a starting point
-    optimal_threads = total_nodes * tasks_per_node // 2
+    # Dynamically determine the optimal number of threads
+    cpu_cores = os.cpu_count()
+    # Use a portion of available cores to avoid overloading the system
+    optimal_threads = max(1, int(cpu_cores * 0.75))
     return optimal_threads
+    # total_nodes = 10
+    # tasks_per_node = 10
+    # # Using half the total tasks as a starting point
+    # optimal_threads = total_nodes * tasks_per_node // 2
+    # return optimal_threads
 
 
 if __name__ == "__main__":
