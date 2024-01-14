@@ -65,11 +65,11 @@ if __name__ == "__main__":
         batch_end = min(batch_start + BATCH_SIZE, total_tickers)
         tickers_batch = to_process_df.iloc[batch_start:batch_end]
 
-        # Extract CIKs for the current batch
-        cik_list = [row["cik_str"] for _, row in tickers_batch.iterrows()]
+        # Extract Tickers for the current batch
+        ticker_list = [row["ticker"] for _, row in tickers_batch.iterrows()]
 
         # Download filings for the current batch of CIKs
-        download_filings_for_batch(cik_list)
+        download_filings_for_batch(ticker_list)
 
         # Determine the optimal number of threads for processing
         THREAD_COUNT = get_optimal_thread_count()
