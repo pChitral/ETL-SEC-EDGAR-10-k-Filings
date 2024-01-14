@@ -77,7 +77,7 @@ if __name__ == "__main__":
 
                     # Save the processed data to a Parquet file
                     result.to_parquet(f"ticker_data/{ticker}.parquet", index=False)
-                    all_tickers_data.append(result)
+                    # all_tickers_data.append(result)
 
                     # Log the processing of the ticker
                     logging.info(f"Processed ticker: {ticker}")
