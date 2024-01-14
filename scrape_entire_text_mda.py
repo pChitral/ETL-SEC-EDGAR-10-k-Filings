@@ -9,9 +9,7 @@ import time
 # Utility functions from the utils module for specific operations
 from utils.processing.process_single_ticker import process_single_ticker
 from utils.helpers.log_memory_usage import log_memory_usage
-from utils.helpers.download_filings_for_batch import (
-    download_filings_for_batch,
-)  # New import
+from utils.helpers.download_filings_for_batch import download_filings_for_batch
 
 # Set up basic configuration for logging
 logging.basicConfig(
@@ -35,6 +33,9 @@ if __name__ == "__main__":
     # Set the total number of tickers to process
     total_tickers = len(to_process_df)
     all_tickers_data = []
+
+    # Initialize a counter for the total number of processed tickers
+    processed_tickers_count = 0
 
     # Loop through tickers in batches for processing
     for batch_start in range(0, total_tickers, BATCH_SIZE):
@@ -83,12 +84,13 @@ if __name__ == "__main__":
                     # Update the status file to mark the ticker as processed
                     status_df.loc[status_df["ticker"] == ticker, "processed"] = True
 
+        # Update the counter for the total number of processed tickers
+        processed_tickers_count += len(tickers_batch)
 
-
-        # Log the percentage of tickers processed so far
-        processed_percentage = (batch_end / total_tickers) * 100
+        # Calculate and log the percentage of tickers processed so far
+        processed_percentage = (processed_tickers_count / total_tickers) * 100
         logging.info(
-            f"Completed {processed_percentage:.2f}% (Processed {batch_end} of {total_tickers} tickers)"
+            f"Completed {processed_percentage:.2f}% (Processed {processed_tickers_count} of {total_tickers} tickers)"
         )
     log_memory_usage()
 
