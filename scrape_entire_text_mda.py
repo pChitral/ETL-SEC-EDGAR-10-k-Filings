@@ -72,11 +72,11 @@ if __name__ == "__main__":
         download_filings_for_batch(cik_list)
 
         # Determine the optimal number of threads for processing
-        thread_count = get_optimal_thread_count()
+        THREAD_COUNT = get_optimal_thread_count()
 
         # Process tickers in the current batch concurrently with dynamic thread count
         with concurrent.futures.ThreadPoolExecutor(
-            max_workers=thread_count
+            max_workers=THREAD_COUNT
         ) as executor:
             futures = [
                 executor.submit(
