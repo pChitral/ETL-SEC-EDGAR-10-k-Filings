@@ -14,7 +14,7 @@ def process_single_ticker(ticker, cik, title):
         ticker_df = pd.DataFrame(ticker_data)
         logging.info(f"Processed {len(ticker_df)} 10-K filings for {ticker}")
         # After successful processing and saving CSV, delete the folder
-        delete_processed_folder(ticker)
+        delete_processed_folder(cik)
         return ticker_df, cik, ticker
     else:
         logging.info(f"No data to process for ticker: {ticker}")
