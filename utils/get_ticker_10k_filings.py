@@ -4,39 +4,29 @@ from sec_edgar_downloader import Downloader
 from requests.exceptions import HTTPError
 import random
 
-
 # Set the logging level for pyrate_limiter to WARNING or higher to suppress INFO messages
 logging.getLogger("pyrate_limiter").setLevel(logging.WARNING)
 
 
-def get_ticker_10k_filings(cik, max_retries=2, initial_backoff=2.0, backoff_factor=2.0):
+def get_ticker_10k_filings(cik):
     """
-    Enhanced downloading of 10-K filings with refined rate limiting and retry logic.
+    Download 10-K filings for a single CIK.
     """
     dl = Downloader("SUNY_Buffalo", "hello@buffalo.edu", "data")
-    sleep_time = initial_backoff
 
-    for attempt in range(max_retries):
-        try:
-            time.sleep(random.uniform(1, 2))
-            dl.get("10-K", cik, download_details=True)
-            # Reset sleep time after successful request and return True
-            return True
-        except HTTPError as e:
-            if e.response.status_code == 429:
-                logging.warning(
-                    f"Rate limit exceeded for CIK {cik}. Retrying in {sleep_time} seconds."
-                )
-            else:
-                logging.error(f"HTTP error for CIK {cik}: {e}")
-        except Exception as e:
-            logging.error(f"Attempt {attempt + 1} failed for CIK {cik}: {e}")
+    try:
+        # Introduce a random sleep time to avoid hitting rate limits
+        time.sleep(random.uniform(1, 2))
 
-        if attempt < max_retries - 1:
-            time.sleep(sleep_time)
-            sleep_time = min(
-                sleep_time * backoff_factor, 120
-            )  # Cap the sleep time at 120 seconds
+        # Download 10-K filings for the given CIK
+        dl.get("10-K", cik, download_details=True)
 
-    logging.error(f"All attempts to download 10-K filings for CIK {cik} have failed.")
+        # Log successful download
+        logging.info(f"Successfully downloaded 10-K filings for CIK {cik}.")
+        return True
+    except HTTPError as e:
+        logging.error(f"HTTP error for CIK {cik}: {e}")
+    except Exception as e:
+        logging.error(f"Error occurred while downloading filings for CIK {cik}: {e}")
+
     return False
