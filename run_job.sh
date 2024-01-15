@@ -4,7 +4,7 @@ set -e  # Exit immediately if a command exits with a non-zero status.
 #SBATCH --time=12:00:00              # Specify the maximum runtime (here, 12 hours)
 #SBATCH --nodes=16                   # Specify the number of nodes (here, 16)
 #SBATCH --ntasks-per-node=16         # Specify the number of tasks per node (here, 16)
-#SBATCH --mem=100000                 # Specify the memory requirement in MB (100 GB = 100000 MB)
+#SBATCH --mem=50000                 # Specify the memory requirement in MB (50 GB = 50000 MB)
 #SBATCH --job-name="ETL_SEC_EDGAR_10k_filings"   # Specify the job name
 #SBATCH --output=ETL_SEC_EDGAR_10k_filings.out   # Specify the output file
 #SBATCH --error=ETL_SEC_EDGAR_10k_filings.err    # Specify the error file
