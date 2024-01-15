@@ -8,6 +8,7 @@ set -e  # Exit immediately if a command exits with a non-zero status.
 #SBATCH --job-name="ETL_SEC_EDGAR_10k_filings"   # Specify the job name
 #SBATCH --output=ETL_SEC_EDGAR_10k_filings.out   # Specify the output file
 #SBATCH --error=ETL_SEC_EDGAR_10k_filings.err    # Specify the error file
+#SBATCH --account=haimonti  
 #SBATCH --mail-user=chitralp@buffalo.edu         # Specify your email address
 #SBATCH --mail-type=end
 #SBATCH --partition=general-compute              # Specify the partition (general-compute)
