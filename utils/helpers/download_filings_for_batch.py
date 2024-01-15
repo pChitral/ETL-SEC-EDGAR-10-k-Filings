@@ -37,6 +37,7 @@ def download_filings(ticker, retry_delay=0):
 
     with REQUEST_SEMAPHORE:
         try:
+            time.sleep(random.uniform(1, 2))
             success = get_ticker_10k_filings(ticker)
             return success
         except HTTPError as e:
