@@ -87,6 +87,7 @@ def download_filings_for_batch(ticker_list, max_retries=3):
                     )
                 else:
                     logging.error(f"Failed to download filings for ticker: {ticker}")
+                    time.sleep(random.uniform(1, 2))
                     retry_counts[ticker] += 1
                     if retry_counts[ticker] < max_retries:
                         to_retry.add(ticker)
