@@ -115,7 +115,7 @@ if __name__ == "__main__":
         )
         # Save the updated processing status back to the CSV file
         status_df.to_csv("processing_status.csv", index=False)
-        
+
     log_memory_usage()
 
     # Log completion of data processing

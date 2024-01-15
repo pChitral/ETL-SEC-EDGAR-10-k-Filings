@@ -1,6 +1,6 @@
 #!/bin/bash -l
 #
-#SBATCH --time=36:00:00       # Specify the maximum runtime (here, 36 hours)
+#SBATCH --time=24:00:00       # Specify the maximum runtime (here, 24 hours)
 #SBATCH --nodes=10             # Specify the number of nodes (here, 10)
 #SBATCH --ntasks-per-node=10  # Specify the number of tasks per node (here, 10)
 #SBATCH --mem=75000           # Specify the memory requirement in MB (75 GB = 75000 MB)
