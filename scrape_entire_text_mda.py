@@ -46,7 +46,8 @@ if __name__ == "__main__":
     to_process_df = status_df[status_df["processed"] == False]
 
     # Set the total number of tickers to process
-    total_tickers = len(to_process_df)
+    # total_tickers = len(to_process_df)
+    total_tickers = 10
     all_tickers_data = []
 
     # Initialize a counter for the total number of processed tickers
@@ -112,6 +113,9 @@ if __name__ == "__main__":
         logging.info(
             f"Completed {processed_percentage:.2f}% (Processed {processed_tickers_count} of {total_tickers} tickers)"
         )
+        # Save the updated processing status back to the CSV file
+        status_df.to_csv("processing_status.csv", index=False)
+        
     log_memory_usage()
 
     # Log completion of data processing
