@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #
 #SBATCH --time=24:00:00       # Specify the maximum runtime (here, 24 hours)
-#SBATCH --nodes=100             # Specify the number of nodes (here, 100)
-#SBATCH --ntasks-per-node=100  # Specify the number of tasks per node (here, 100)
+#SBATCH --nodes=32             # Specify the number of nodes (here, 32)
+#SBATCH --ntasks-per-node=32  # Specify the number of tasks per node (here, 32)
 #SBATCH --mem=100000           # Specify the memory requirement in MB (100 GB = 100000 MB)
 #SBATCH --job-name="ETL_SEC_EDGAR_10k_filings"  # Specify the job name
 #SBATCH --output=ETL_SEC_EDGAR_10k_filings.out  # Specify the output file
