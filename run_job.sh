@@ -11,7 +11,6 @@ set -e  # Exit immediately if a command exits with a non-zero status.
 #SBATCH --mail-user=chitralp@buffalo.edu         # Specify your email address
 #SBATCH --mail-type=end
 #SBATCH --partition=general-compute              # Specify the partition (general-compute)
-#SBATCH --qos=general-c+                         # Updated QoS setting
 #SBATCH --cluster=ub-hpc                         # Specify the cluster name (ub-hpc)
 
 # [Rest of your script]
