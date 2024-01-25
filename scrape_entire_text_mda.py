@@ -20,7 +20,7 @@ logging.basicConfig(
 )
 
 # Define the batch size for processing tickers
-BATCH_SIZE = 100
+BATCH_SIZE = 5
 
 
 def get_optimal_thread_count():
@@ -59,8 +59,8 @@ if __name__ == "__main__":
         log_memory_usage()
 
         # Introduce a random sleep time between batches
-        sleep_time = random.uniform(1, 2)
-        time.sleep(sleep_time)
+        # sleep_time = random.uniform(1)
+        # time.sleep(sleep_time)
 
         # Determine the end of the current batch
         batch_end = min(batch_start + BATCH_SIZE, total_tickers)
@@ -97,8 +97,7 @@ if __name__ == "__main__":
                     os.makedirs("ticker_data", exist_ok=True)
 
                     # Save the processed data to a Parquet file
-                    result.to_parquet(f"ticker_data/{ticker}.parquet", index=False)
-                    # all_tickers_data.append(result)
+                    result.to_csv(f"ticker_data/{ticker}.csv", index=False)
 
                     # Log the processing of the ticker
                     logging.info(f"Processed ticker: {ticker}")

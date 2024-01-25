@@ -1,7 +1,7 @@
 #!/bin/bash -l
 set -e  # Exit immediately if a command exits with a non-zero status.
 
-#SBATCH --time=12:00:00              # Specify the maximum runtime (here, 12 hours)
+#SBATCH --time=36:00:00              # Specify the maximum runtime (here, 12 hours)
 #SBATCH --nodes=16                   # Specify the number of nodes (here, 16)
 #SBATCH --ntasks-per-node=16         # Specify the number of tasks per node (here, 16)
 #SBATCH --mem=50000                 # Specify the memory requirement in MB (50 GB = 50000 MB)
