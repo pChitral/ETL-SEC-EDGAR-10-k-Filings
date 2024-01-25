@@ -1,9 +1,9 @@
 #!/bin/bash -l
 set -e  # Exit immediately if a command exits with a non-zero status.
 
-#SBATCH --time=36:00:00              # Specify the maximum runtime (here, 12 hours)
-#SBATCH --nodes=16                   # Specify the number of nodes (here, 16)
-#SBATCH --ntasks-per-node=16         # Specify the number of tasks per node (here, 16)
+#SBATCH --time=24:00:00              # Specify the maximum runtime (here, 12 hours)
+#SBATCH --nodes=5                   # Specify the number of nodes (here, 16)
+#SBATCH --ntasks-per-node=10         # Specify the number of tasks per node (here, 16)
 #SBATCH --mem=50000                 # Specify the memory requirement in MB (50 GB = 50000 MB)
 #SBATCH --job-name="ETL_SEC_EDGAR_10k_filings"   # Specify the job name
 #SBATCH --output=ETL_SEC_EDGAR_10k_filings.out   # Specify the output file
