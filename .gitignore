@@ -118,7 +118,8 @@ __pypackages__/
 # Celery stuff
 celerybeat-schedule
 celerybeat.pid
-
+# DS Store files
+.DS_Store
 # SageMath parsed files
 *.sage.py
 

@@ -64,6 +64,7 @@ if __name__ == "__main__":
 
         # Determine the end of the current batch
         batch_end = min(batch_start + BATCH_SIZE, total_tickers)
+
         tickers_batch = to_process_df.iloc[batch_start:batch_end]
 
         # Extract Tickers for the current batch

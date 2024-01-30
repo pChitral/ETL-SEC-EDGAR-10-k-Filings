@@ -1,17 +1,28 @@
+"""
+This module provides functionality to delete specific folders related to company tickers. 
+It includes a function to delete the folder containing 10-K filings for a given ticker.
+"""
+
 import shutil
 import logging
+from typing import NoReturn
 
 
-def delete_processed_folder(ticker):
+def delete_processed_folder(ticker: str) -> NoReturn:
     """
     Deletes the 10-K filings folder for the specified ticker.
 
     Args:
-    - ticker (str): Ticker symbol of the company.
+        ticker (str): Ticker symbol of the company.
+
+    Returns:
+        NoReturn: This function does not return anything. It performs a deletion operation.
     """
     folder_path = f"data/sec-edgar-filings/{ticker}/10-K"
     try:
         shutil.rmtree(folder_path)
         logging.info(f"Successfully deleted 10-K filings folder for {ticker}")
-    except Exception as e:
+    except FileNotFoundError:
+        logging.error(f"10-K filings folder for {ticker} not found.")
+    except OSError as e:
         logging.error(f"Error deleting 10-K filings folder for {ticker}: {e}")
