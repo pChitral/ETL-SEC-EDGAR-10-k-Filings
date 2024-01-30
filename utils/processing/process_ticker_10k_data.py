@@ -25,11 +25,7 @@ def process_ticker_10k_data(ticker, cik, title):
     - list: A list of dictionaries, each containing the parsed data for a single 10-K filing.
     """
 
-    # Attempt to download the filings for the given ticker
-    if not get_ticker_10k_filings(ticker):
-        logging.info(f"Failed to download filings for {ticker}. Skipping processing.")
-        return []
-
+    
     # Collect the downloaded ticker files
     ticker_files_dict = collect_ticker_files()
 
