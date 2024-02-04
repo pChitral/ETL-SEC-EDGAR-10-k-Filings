@@ -1,6 +1,5 @@
 import pandas as pd
 from bs4 import BeautifulSoup
-from typing import Dict
 import json
 
 
@@ -14,8 +13,8 @@ def extract_word_count(html_file_path: str) -> str:
     Returns:
     - str: A JSON object (as a string) containing the word counts.
     """
-    # Step 1: Read the word list from the CSV file
-    word_list_df = pd.read_csv("updated_word_list.csv")
+    # Step 1: Adjust the path to read the word list from the CSV file
+    word_list_df = pd.read_csv("../../../updated_word_list.csv")  # Adjusted path
     word_list = word_list_df["Word"].tolist()
 
     # Step 2: Parse the HTML file to extract text
@@ -30,9 +29,3 @@ def extract_word_count(html_file_path: str) -> str:
     word_counts_json = json.dumps(word_counts)
 
     return word_counts_json
-
-
-# Example usage
-# html_file_path = 'path/to/your/html_file.html'
-# word_count_json = extract_word_count(html_file_path)
-# print(word_count_json)
