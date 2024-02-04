@@ -15,7 +15,7 @@ def extract_word_count(html_file_path: str) -> str:
     """
     # Step 1: Adjust the path to read the word list from the CSV file
     word_list_df = pd.read_csv("updated_word_list.csv")  # Adjusted path
-    word_list = word_list_df["Word"].tolist()
+    word_list = word_list_df["words"].tolist()
 
     # Step 2: Parse the HTML file to extract text
     with open(html_file_path, "r", encoding="utf-8") as file:
