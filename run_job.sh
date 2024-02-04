@@ -1,7 +1,7 @@
 #!/bin/bash -l
 #
 #SBATCH --time=72:00:00
-#SBATCH --nodes=1
+#SBATCH --nodes=2
 #SBATCH --ntasks-per-node=7
 #SBATCH --mem=100000
 #SBATCH --job-name="ETL_EDGAR_10k_filings"
@@ -12,7 +12,7 @@
 #SBATCH --qos=general-compute
 #SBATCH --cluster=ub-hpc
 # Navigate to the directory where you want to run the Python script
-cd /user/chitralp/ETL-10-k-Filings
+cd /projects/academic/haimonti/ETL_10k_filings/word_count/ETL-SEC-EDGAR-10-k-Filings
 
 # Activate your Python virtual environment
 source venv/bin/activate
