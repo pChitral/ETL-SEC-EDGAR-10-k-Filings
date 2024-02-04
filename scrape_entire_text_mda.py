@@ -29,11 +29,7 @@ def get_optimal_thread_count():
     # Use a portion of available cores to avoid overloading the system
     optimal_threads = max(1, int(cpu_cores * 0.75))
     return optimal_threads
-    # total_nodes = 100
-    # tasks_per_node = 100
-    # # Using half the total tasks as a starting point
-    # optimal_threads = total_nodes * tasks_per_node // 2
-    # return optimal_threads
+
 
 
 if __name__ == "__main__":
