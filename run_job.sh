@@ -1,9 +1,9 @@
 #!/bin/bash -l
 #
-#SBATCH --time=24:00:00
-#SBATCH --nodes=1
-#SBATCH --ntasks-per-node=10
-#SBATCH --mem=50000
+#SBATCH --time=72:00:00
+#SBATCH --nodes=2
+#SBATCH --ntasks-per-node=32
+#SBATCH --mem=100000
 #SBATCH --job-name="ETL_EDGAR_10k_filings"
 #SBATCH --output=ETL_EDGAR_10k_filings.out
 #SBATCH --mail-user=chitralp@buffalo.edu

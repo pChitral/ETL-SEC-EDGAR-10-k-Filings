@@ -1,4 +1,4 @@
-from utils.data_extraction.extract_mda_section import extract_mda_section
+from utils.data_extraction.extract_word_count import extract_word_count
 
 import logging
 
@@ -31,13 +31,14 @@ def process_html_file(html_file, ticker, cik, title):
         )
 
         try:
-            parsed_data = extract_mda_section(html_file)
+            # parsed_data = extract_mda_section(html_file)
+            parsed_data = extract_word_count(html_file)
             filing_dict = {
                 "cik": cik,
                 "ticker": ticker,
                 "title": title,
                 "year": int(Year),
-                "mda_section": parsed_data,
+                "word_count": parsed_data,
                 "processed_timestamp": datetime.now(),
             }
             return filing_dict
