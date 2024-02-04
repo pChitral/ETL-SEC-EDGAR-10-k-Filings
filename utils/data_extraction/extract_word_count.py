@@ -14,7 +14,7 @@ def extract_word_count(html_file_path: str) -> str:
     - str: A JSON object (as a string) containing the word counts.
     """
     # Step 1: Adjust the path to read the word list from the CSV file
-    word_list_df = pd.read_csv("../../../updated_word_list.csv")  # Adjusted path
+    word_list_df = pd.read_csv("updated_word_list.csv")  # Adjusted path
     word_list = word_list_df["Word"].tolist()
 
     # Step 2: Parse the HTML file to extract text
