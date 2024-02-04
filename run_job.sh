@@ -1,8 +1,8 @@
 #!/bin/bash -l
 #
 #SBATCH --time=72:00:00
-#SBATCH --nodes=2
-#SBATCH --ntasks-per-node=8
+#SBATCH --nodes=4
+#SBATCH --ntasks-per-node=32
 #SBATCH --mem=100000
 #SBATCH --job-name="ETL_EDGAR_10k_filings"
 #SBATCH --output=ETL_EDGAR_10k_filings.out
