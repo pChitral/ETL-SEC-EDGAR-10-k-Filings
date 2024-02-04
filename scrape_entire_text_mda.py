@@ -31,7 +31,6 @@ def get_optimal_thread_count():
     return optimal_threads
 
 
-
 if __name__ == "__main__":
     # Load company tickers data from the status file
     status_df = pd.read_csv("processing_status.csv")
@@ -54,9 +53,8 @@ if __name__ == "__main__":
         # Log the memory usage before processing the batch
         log_memory_usage()
 
-        # Introduce a random sleep time between batches
-        # sleep_time = random.uniform(1)
-        # time.sleep(sleep_time)
+        # Introduce a random sleep of milliseconds time between batches
+        time.sleep(random.uniform(0.1, 0.9))
 
         # Determine the end of the current batch
         batch_end = min(batch_start + BATCH_SIZE, total_tickers)
