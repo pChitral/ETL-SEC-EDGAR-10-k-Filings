@@ -31,7 +31,6 @@ def process_html_file(html_file, ticker, cik, title):
         )
 
         try:
-            # parsed_data = extract_mda_section(html_file)
             parsed_data = extract_word_count(html_file)
             filing_dict = {
                 "cik": cik,

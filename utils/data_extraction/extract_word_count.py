@@ -1,6 +1,8 @@
 import pandas as pd
 from bs4 import BeautifulSoup
 import json
+from collections import Counter
+import re
 
 
 def extract_word_count(html_file_path: str) -> str:
@@ -13,19 +15,29 @@ def extract_word_count(html_file_path: str) -> str:
     Returns:
     - str: A JSON object (as a string) containing the word counts.
     """
-    # Step 1: Adjust the path to read the word list from the CSV file
-    word_list_df = pd.read_csv("updated_word_list.csv")  # Adjusted path
-    word_list = word_list_df["words"].tolist()
+    # Load the word list from the CSV file
+    try:
+        word_list_df = pd.read_csv("updated_word_list.csv")
+    except FileNotFoundError:
+        return json.dumps({"error": "Word list file not found."})
 
-    # Step 2: Parse the HTML file to extract text
-    with open(html_file_path, "r", encoding="utf-8") as file:
-        soup = BeautifulSoup(file, "html.parser")
-        text = soup.get_text(separator=" ", strip=True)
+    word_list = set(word_list_df["words"].tolist())
 
-    # Step 3: Count occurrences of each word
-    word_counts = {word: text.count(word) for word in word_list}
+    # Parse the HTML file to extract text
+    try:
+        with open(html_file_path, "r", encoding="utf-8") as file:
+            soup = BeautifulSoup(file, "html.parser")
+    except (FileNotFoundError, UnicodeDecodeError) as e:
+        return json.dumps({"error": str(e)})
 
-    # Step 4: Convert the word counts to a JSON object
-    word_counts_json = json.dumps(word_counts)
+    text = soup.get_text(" ", strip=True).lower()
+    words_in_text = re.findall(r"\b\w+\b", text)
 
-    return word_counts_json
+    # Count occurrences of each word efficiently
+    word_counts = Counter(words_in_text)
+    selected_word_counts = {
+        word: word_counts[word] for word in word_list if word in word_counts
+    }
+
+    # Convert the word counts to a JSON object
+    return json.dumps(selected_word_counts)
