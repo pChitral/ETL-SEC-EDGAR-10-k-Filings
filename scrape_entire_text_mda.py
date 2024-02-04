@@ -68,6 +68,7 @@ if __name__ == "__main__":
         for result, ticker_info in zip(results, ticker_data):
             if result is not None:
                 os.makedirs(TICKER_DATA_DIR, exist_ok=True)
+                print(ticker_info)
                 result.to_csv(f"{TICKER_DATA_DIR}/{ticker_info[0]}.csv", index=False)
                 logging.info(f"Processed ticker: {ticker_info[0]}")
                 processed_tickers.append(ticker_info[0])
