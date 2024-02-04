@@ -4,6 +4,7 @@ from collections import Counter
 
 import pandas as pd
 from bs4 import BeautifulSoup
+from ..global_vars import load_word_list, WORD_LIST
 
 
 def extract_word_count(html_file_path: str) -> str:
@@ -29,6 +30,7 @@ def extract_word_count(html_file_path: str) -> str:
         cannot be found.
         UnicodeDecodeError: If there's an encoding issue with the HTML file.
     """
+    load_word_list()
     try:
         word_list_df = pd.read_csv("updated_word_list.csv")
     except FileNotFoundError as e:
