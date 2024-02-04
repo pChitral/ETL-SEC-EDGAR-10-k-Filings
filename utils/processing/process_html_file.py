@@ -22,7 +22,7 @@ def process_html_file(html_file, ticker, cik, title):
         cik_year_acc = path_parts[4].split("-")
 
         if len(cik_year_acc) < 3:
-            logging.warning(f"Skipping file with unexpected format: {html_file}")
+            logging.warning(f"Skipping file with unexpected date format: {html_file}")
             return None
 
         two_digit_year = cik_year_acc[1]
