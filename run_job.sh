@@ -2,7 +2,7 @@
 #
 #SBATCH --time=72:00:00
 #SBATCH --nodes=2
-#SBATCH --ntasks-per-node=7
+#SBATCH --ntasks-per-node=8
 #SBATCH --mem=100000
 #SBATCH --job-name="ETL_EDGAR_10k_filings"
 #SBATCH --output=ETL_EDGAR_10k_filings.out
