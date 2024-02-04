@@ -83,9 +83,10 @@ def download_filings_for_batch(ticker_list, max_retries=3):
                 ticker = future_to_ticker[future]
                 success = future.result()
                 if success:
-                    logging.info(
-                        f"Successfully downloaded filings for ticker: {ticker}"
-                    )
+                    print(f"Successfully from download_filings_for_batch for ticker: {ticker}") 
+                    # logging.info(
+                    #     f"Successfully downloaded filings for ticker: {ticker}"
+                    # )
                 else:
                     logging.error(f"Failed to download filings for ticker: {ticker}")
                     time.sleep(random.uniform(1, 2))
