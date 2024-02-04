@@ -1,9 +1,13 @@
 import os
-from typing import List, Dict, Any
-from tqdm import tqdm
+from typing import List, Dict
 
 
 class TickerFilesCollector:
+    """
+    A class to collect file paths for specific file types (TXT, HTML, XML) associated with stock ticker symbols.
+    This class allows for the organization and retrieval of company-specific documents stored within a given directory structure.
+    """
+
     def __init__(self, root_folder: str) -> None:
         """
         Initializes a TickerFilesCollector object.
@@ -13,7 +17,6 @@ class TickerFilesCollector:
         """
         self.root_folder: str = root_folder
         self.ticker_files: Dict[str, List[str]] = {}
-        self.total_tickers: int = 0  # Track the total number of tickers for tqdm
 
     def _collect_files(self, root_folder: str) -> List[str]:
         """
@@ -53,12 +56,7 @@ class TickerFilesCollector:
         Returns:
             Dict[str, List[str]]: A dictionary with company tickers as keys and lists of associated file paths as values.
         """
-        self.total_tickers = len(
-            os.listdir(self.root_folder)
-        )  # Get total number of tickers
-        for folder in tqdm(
-            os.listdir(self.root_folder), desc="Collecting Tickers", unit="ticker"
-        ):
+        for folder in os.listdir(self.root_folder):
             ticker_folder = os.path.join(self.root_folder, folder)
             if os.path.isdir(ticker_folder):
                 self.ticker_files.update(self._get_ticker_files(ticker_folder, folder))
