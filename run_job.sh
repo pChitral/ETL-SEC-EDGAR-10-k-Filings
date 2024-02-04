@@ -10,7 +10,7 @@
 #SBATCH --mail-type=end
 #SBATCH --partition=general-compute
 #SBATCH --qos=general-compute
-#SBATCH --cluster=ub-hpc
+
 
 cd /projects/academic/haimonti/ETL_10k_filings/word_count/ETL-SEC-EDGAR-10-k-Filings
 
