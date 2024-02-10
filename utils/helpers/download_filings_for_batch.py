@@ -68,7 +68,7 @@ def download_filings_for_batch(ticker_list, max_retries=3):
     to_retry = set(ticker_list)
 
     while to_retry:
-        with ThreadPoolExecutor(max_workers=10) as executor:
+        with ThreadPoolExecutor(max_workers=8) as executor:
             future_to_ticker = {
                 executor.submit(
                     download_filings,
