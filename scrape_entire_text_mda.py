@@ -11,7 +11,7 @@ from utils.helpers.download_filings_for_batch import download_filings_for_batch
 
 # Constants
 TICKER_DATA_DIR = "ticker_data"
-BATCH_SIZE = 8
+BATCH_SIZE = 5
 LOG_FILE = "ticker_processing.log"
 
 

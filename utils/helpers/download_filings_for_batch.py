@@ -22,27 +22,34 @@ logging.basicConfig(
 REQUEST_SEMAPHORE = threading.Semaphore(10)
 
 
-def download_filings(ticker, retry_delay=0):
+def download_filings(ticker, retry_delay=0, retry_factor=2, max_delay=120):
     """
     Downloads filings for a given ticker with an optional delay.
 
     Args:
         ticker (str): The ticker symbol for which to download filings.
-        retry_delay (float): The delay in seconds before making a request.
+        retry_delay (float): The initial delay in seconds before making a request.
+        retry_factor (float): The factor by which the delay is multiplied on each retry.
+        max_delay (int): The maximum delay between retries to avoid excessively long wait times.
 
     Returns:
         bool: True if download succeeded, False otherwise.
     """
-    time.sleep(retry_delay)  # Delay before making the request
+    delay = retry_delay  # Initial delay before the first request attempt
 
     with REQUEST_SEMAPHORE:
         try:
-            time.sleep(random.uniform(1, 2))
+            time.sleep(delay)  # Delay before making the request
             success = get_ticker_10k_filings(ticker)
             return success
         except HTTPError as e:
             if e.response.status_code == 429:
-                logging.error(f"Rate limit exceeded for {ticker}")
+                logging.error(
+                    f"Rate limit exceeded for {ticker}. Retrying after delay."
+                )
+                # Increase delay for next retry using exponential backoff
+                delay = min(delay * retry_factor + random.uniform(0, 1), max_delay)
+                return download_filings(ticker, delay)
             else:
                 logging.error(f"HTTP error occurred for {ticker}: {e}")
         except RequestException as e:
@@ -68,7 +75,7 @@ def download_filings_for_batch(ticker_list, max_retries=3):
     to_retry = set(ticker_list)
 
     while to_retry:
-        with ThreadPoolExecutor(max_workers=8) as executor:
+        with ThreadPoolExecutor(max_workers=5) as executor:
             future_to_ticker = {
                 executor.submit(
                     download_filings,
@@ -83,7 +90,9 @@ def download_filings_for_batch(ticker_list, max_retries=3):
                 ticker = future_to_ticker[future]
                 success = future.result()
                 if success:
-                    print(f"Successfully from download_filings_for_batch for ticker: {ticker}") 
+                    print(
+                        f"Successfully from download_filings_for_batch for ticker: {ticker}"
+                    )
                     # logging.info(
                     #     f"Successfully downloaded filings for ticker: {ticker}"
                     # )
