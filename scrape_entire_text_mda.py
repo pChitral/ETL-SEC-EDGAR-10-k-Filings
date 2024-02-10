@@ -1,21 +1,20 @@
-# Standard library imports for concurrency, file operations, and data handling
 import concurrent.futures
 import os
 import pandas as pd
 import logging
 import random
 import time
+import cProfile
+import traceback  # For detailed error logging
 from utils.processing.process_single_ticker import process_single_ticker
 from utils.helpers.log_memory_usage import log_memory_usage
 from utils.helpers.download_filings_for_batch import download_filings_for_batch
 
-# Constants
 TICKER_DATA_DIR = "ticker_data"
 BATCH_SIZE = 8
 LOG_FILE = "ticker_processing.log"
 
 
-# Set up basic configuration for logging
 def setup_logging():
     if not logging.getLogger().hasHandlers():
         logging.basicConfig(
@@ -26,19 +25,17 @@ def setup_logging():
 
 
 def get_optimal_thread_count():
-    """Dynamically determine the optimal number of threads."""
     cpu_cores = os.cpu_count()
     return max(1, int(cpu_cores * 0.75))
 
 
 def update_processed_status(status_df, processed_tickers):
-    """Bulk update of processed tickers to improve efficiency."""
     mask = status_df["ticker"].isin(processed_tickers)
     status_df.loc[mask, "processed"] = True
     return status_df
 
 
-if __name__ == "__main__":
+def main():
     setup_logging()
     status_df = pd.read_csv("processing_status.csv")
     logging.info("Starting the processing of tickers.")
@@ -47,8 +44,10 @@ if __name__ == "__main__":
     total_tickers = len(to_process_df)
     processed_tickers_count = 0
 
+    # Process tickers in batches
     for batch_start in range(0, total_tickers, BATCH_SIZE):
         log_memory_usage()
+        # Random delay to mitigate load on external services
         time.sleep(random.uniform(0.1, 0.9))
         batch_end = min(batch_start + BATCH_SIZE, total_tickers)
         tickers_batch = to_process_df.iloc[batch_start:batch_end]
@@ -75,7 +74,9 @@ if __name__ == "__main__":
                         logging.info(f"Processed ticker: {ticker}")
                         processed_tickers.append(ticker)
                 except Exception as e:
-                    logging.error(f"Error processing ticker {futures[future]}: {e}")
+                    logging.error(
+                        f"Error processing ticker {futures[future]}: {e}\n{traceback.format_exc()}"
+                    )
 
         status_df = update_processed_status(status_df, processed_tickers)
         processed_tickers_count += len(processed_tickers)
@@ -86,3 +87,7 @@ if __name__ == "__main__":
     status_df.to_csv("processing_status.csv", index=False)
     log_memory_usage()
     logging.info("All ticker data processed and exported.")
+
+
+if __name__ == "__main__":
+    cProfile.run("main()", "profiling_results.out")
