@@ -3,7 +3,7 @@
 #SBATCH --time=72:00:00
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
-#SBATCH --cpus-per-task=64  
+#SBATCH --cpus-per-task=32  
 #SBATCH --mem=100000  
 #SBATCH --job-name="ETL_EDGAR_10k_filings"
 #SBATCH --output=ETL_EDGAR_10k_filings.out
